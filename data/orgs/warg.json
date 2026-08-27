@@ -1,0 +1,24 @@
+{
+  "slug": "warg",
+  "name": "Waterloo Aerial Robotics Group (WARG)",
+  "category": "DesignTeam",
+  "description": "Builds unmanned aerial vehicles, including custom autopilot and computer vision software, competing in the AEAC Student Competition.",
+  "links": {
+    "website": "https://www.uwarg.com/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["robotics", "aerospace", "computer-vision", "embedded"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The team's join page states the team 'is open to join for all University of Waterloo students' with no formal application — join their Discord to get started.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

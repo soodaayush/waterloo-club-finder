@@ -1,0 +1,24 @@
+{
+  "slug": "waturbine",
+  "name": "WATurbine",
+  "category": "DesignTeam",
+  "description": "Designs and builds small wind turbines for the International Small Wind Turbine Competition.",
+  "links": {
+    "website": "https://www.waturbine.ca/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["mechanical", "sustainability"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site only had a general 'Learn more about Our Mission' link at verification time; no recruitment/application info found.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

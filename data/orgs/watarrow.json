@@ -1,0 +1,24 @@
+{
+  "slug": "watarrow",
+  "name": "WatArrow",
+  "category": "DesignTeam",
+  "description": "Designs small airplanes to compete in the SAE Aero Design competition.",
+  "links": {
+    "website": "https://watarrow.com/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["aerospace", "mechanical"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site has a 'Join Us' nav link but its content wasn't accessible during verification; no confirmed current recruitment. Contact waterlooarrow@gmail.com.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

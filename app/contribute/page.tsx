@@ -1,0 +1,112 @@
+import Link from "next/link";
+import { GITHUB_REPO, getNewOrgUrl } from "@/lib/github";
+
+export const metadata = {
+  title: "Contribute — Waterloo Club Finder",
+};
+
+export default function ContributePage() {
+  return (
+    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
+      <Link
+        href="/"
+        className="inline-flex w-fit items-center gap-1 text-sm text-foreground/50 hover:text-foreground"
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 20 20"
+          fill="none"
+          className="size-4"
+        >
+          <path
+            d="M12 15l-5-5 5-5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        All clubs
+      </Link>
+
+      <header className="flex flex-col gap-3">
+        <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          How this site stays accurate
+        </h1>
+        <p className="text-foreground/60">
+          There&apos;s no admin team manually running this — the data behind
+          every club page lives as plain JSON files in{" "}
+          <a
+            href={`https://github.com/${GITHUB_REPO}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-foreground underline underline-offset-2"
+          >
+            this project&apos;s GitHub repo
+          </a>
+          . Updates happen through pull requests, which anyone can open. No
+          git experience required — GitHub&apos;s web editor handles the
+          fork-and-PR steps for you.
+        </p>
+      </header>
+
+      <section className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-5 sm:p-6">
+        <h2 className="font-medium">Update an existing club or deadline</h2>
+        <ol className="flex flex-col gap-3">
+          {[
+            <>
+              Open the club&apos;s page and click{" "}
+              <strong>&quot;Edit on GitHub&quot;</strong>.
+            </>,
+            "Sign in to GitHub (free account) if prompted — it will automatically fork the repo for you.",
+            <>
+              Edit the JSON: update <code>status</code>,{" "}
+              <code>opensAt</code>, <code>closesAt</code>,{" "}
+              <code>applyUrl</code>, or <code>lastVerified</code>.
+            </>,
+            "Commit the change as a new pull request.",
+          ].map((step, i) => (
+            <li key={i} className="flex items-start gap-3 text-sm">
+              <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-semibold text-accent-foreground">
+                {i + 1}
+              </span>
+              <span className="pt-0.5 text-foreground/70">{step}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-5 sm:p-6">
+        <h2 className="font-medium">Add a new club or design team</h2>
+        <p className="text-sm text-foreground/60">
+          Click the button below to start a new file pre-filled with the
+          expected format, rename it to your club&apos;s slug, fill in the
+          details, and open a pull request.
+        </p>
+        <a
+          href={getNewOrgUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex w-fit items-center gap-1.5 rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-accent-foreground"
+        >
+          Add a new club on GitHub ↗
+          <span className="sr-only"> (opens in new tab)</span>
+        </a>
+      </section>
+
+      <section className="flex flex-col gap-2 text-sm text-foreground/60">
+        <h2 className="font-medium text-foreground">
+          Why GitHub instead of a submission form?
+        </h2>
+        <p>
+          Every change is a diff with an author and a timestamp, review
+          happens as a normal pull request, and there&apos;s no separate
+          login system or database to maintain. The trade-off: it requires a
+          free GitHub account. If that turns out to be a real barrier for
+          people submitting updates, a simple form that files a GitHub issue
+          on someone&apos;s behalf is a reasonable future addition.
+        </p>
+      </section>
+    </main>
+  );
+}

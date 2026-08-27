@@ -1,0 +1,24 @@
+{
+  "slug": "formula-nano",
+  "name": "Formula Nano",
+  "category": "DesignTeam",
+  "description": "Designs, builds, and races molecular machines at the nanoscale, competing in the international Nanocar Race using scanning tunneling microscopy.",
+  "links": {
+    "website": "https://uwformulanano.ca/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["chemistry", "nanotechnology", "research"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site's /jobs page lists open roles, but the listed deadline ('Apply by 9/26/2025') is over a year stale, suggesting the page hasn't been updated for the current cycle. The FAQ does say 'new members are welcome to join anytime' — worth emailing uwformulanano@gmail.com directly.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

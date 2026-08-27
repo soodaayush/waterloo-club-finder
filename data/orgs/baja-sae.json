@@ -1,0 +1,24 @@
+{
+  "slug": "baja-sae",
+  "name": "Baja SAE",
+  "category": "DesignTeam",
+  "description": "Designs and builds an off-road, single-seat vehicle to compete annually at SAE-sanctioned Baja competitions.",
+  "links": {
+    "website": "https://waterloobaja.ca/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["mechanical", "competition"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Open",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": "https://forms.gle/rFpXnnUndd9f6WeY6",
+      "notes": "The site has an active 'JOIN NOW' link to this Google Form, with no stated deadline.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

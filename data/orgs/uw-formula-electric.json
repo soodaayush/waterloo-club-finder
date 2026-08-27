@@ -1,0 +1,24 @@
+{
+  "slug": "uw-formula-electric",
+  "name": "UW Formula Electric (UWFE)",
+  "category": "DesignTeam",
+  "description": "Designs, builds, and races a formula-style open-wheel electric racecar, competing in FSAE Michigan and Formula Hybrid + Electric.",
+  "links": {
+    "website": "https://www.uwfsae.ca/",
+    "instagram": "https://www.instagram.com/uwaterlooelectric/",
+    "discord": null
+  },
+  "tags": ["mechanical", "electrical", "embedded"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Open",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfrimKM8-HdZzHlybgqguK5zH5O5mywSFVy5nkN5ooHH5v2XQ/viewform",
+      "notes": "The recruitment page links an active application form and invites people to General Meetings announced on their Slack. No deadline stated.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

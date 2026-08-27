@@ -1,0 +1,24 @@
+{
+  "slug": "midnight-sun",
+  "name": "Midnight Sun Solar Car Team",
+  "category": "DesignTeam",
+  "description": "Designs, manufactures, and races solar-electric vehicles, with decades of experience building challenger and cruiser class cars.",
+  "links": {
+    "website": "https://www.uwmidsun.com/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["mechanical", "electrical", "sustainability"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The team's FAQ says explicitly: 'No, you don't need to apply to join Midnight Sun! Just show up and ask how you can contribute — that's all it takes to join the team.'",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

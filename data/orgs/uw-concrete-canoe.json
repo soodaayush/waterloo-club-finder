@@ -1,0 +1,24 @@
+{
+  "slug": "uw-concrete-canoe",
+  "name": "UW Concrete Canoe",
+  "category": "DesignTeam",
+  "description": "Designs, builds, and races a canoe made entirely of reinforced concrete for the Canadian National Concrete Canoe Competition.",
+  "links": {
+    "website": "https://waterlooconcretecanoe.ca",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["civil", "materials"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The team's profile says 'Students from all backgrounds and programs are encouraged to join! No experience is required' — informal, rolling join. Contact concretecanoe@uwaterloo.ca.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

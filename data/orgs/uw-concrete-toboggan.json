@@ -1,0 +1,24 @@
+{
+  "slug": "uw-concrete-toboggan",
+  "name": "UW Concrete Toboggan",
+  "category": "DesignTeam",
+  "description": "Designs and builds a 5-person concrete-ski toboggan with steering, braking, and suspension, racing in the Great Northern Concrete Toboggan Race.",
+  "links": {
+    "website": "https://waterlootoboggan.ca/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["mechanical", "civil"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The team's profile states 'all departments welcome, no experience required' with no formal application gate — contact toboggan@uwaterloo.ca to join.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

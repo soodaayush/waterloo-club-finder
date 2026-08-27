@@ -1,0 +1,24 @@
+{
+  "slug": "wat-street",
+  "name": "Wat Street",
+  "category": "DesignTeam",
+  "description": "A student design team focused on financial investment strategies and algorithmic/quantitative trading education.",
+  "links": {
+    "website": "https://watstreet.netlify.app/",
+    "instagram": "https://www.instagram.com/wat.street/",
+    "discord": null
+  },
+  "tags": ["fintech", "quant", "software"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site's /apply page currently 404s and no active recruitment call was found. Check their Instagram (@wat.street) closer to term start for a new cycle announcement.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

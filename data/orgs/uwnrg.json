@@ -1,0 +1,24 @@
+{
+  "slug": "uwnrg",
+  "name": "UW Nanorobotics Group (UWNRG)",
+  "category": "DesignTeam",
+  "description": "A student-run design team solving problems with nano solutions, currently developing a FET biosensor using graphene oxide gel.",
+  "links": {
+    "website": "https://www.uwnrg.ca",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["nanotechnology", "research"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site has a 'Join Us' call-to-action but only points to an email (uwnrg.recruiting@gmail.com) — no application form or deadline found.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

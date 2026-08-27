@@ -1,0 +1,24 @@
+{
+  "slug": "uwaft",
+  "name": "UWAFT (University of Waterloo Alternative Fuel Team)",
+  "category": "DesignTeam",
+  "description": "Works on sustainable transportation innovation through applied automotive engineering projects.",
+  "links": {
+    "website": "https://uwaterloo.ca/sedra-student-design-centre/catalogs/student-design-teams/uwaft-university-waterloo-alternative-fuel-team",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["mechanical", "sustainability", "automotive"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "Both uwaft.ca and www.uwaft.ca failed to resolve during verification (domain appears defunct/lapsed). Check Sedra Student Design Centre for current contact info.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

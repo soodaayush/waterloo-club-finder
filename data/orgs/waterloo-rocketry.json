@@ -1,0 +1,24 @@
+{
+  "slug": "waterloo-rocketry",
+  "name": "Waterloo Rocketry",
+  "category": "DesignTeam",
+  "description": "Designs and builds high-powered liquid-fuel sounding rockets, competing annually at Launch Canada.",
+  "links": {
+    "website": "https://www.waterloorocketry.com/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["aerospace", "hardware", "software", "embedded"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Upcoming",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The team's own site doesn't show a live application, but coverage of the team notes first-year recruitment 'kicks off in September' via a sign-up form that adds you to their Slack — so it should open very soon after this verification date.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

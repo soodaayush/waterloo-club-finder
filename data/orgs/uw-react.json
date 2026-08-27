@@ -1,0 +1,24 @@
+{
+  "slug": "uw-react",
+  "name": "UW REACT",
+  "category": "DesignTeam",
+  "description": "Keeps the spirit of the FIRST Robotics Competition alive after high school by building fully autonomous FRC robots.",
+  "links": {
+    "website": "https://uwreact.ca/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["robotics", "competition"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site blocked automated verification (403) and no cached recruitment info was found. Contact hello@uwreact.ca.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

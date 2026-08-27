@@ -1,0 +1,24 @@
+{
+  "slug": "watreat",
+  "name": "WATreat",
+  "category": "DesignTeam",
+  "description": "Develops innovative water treatment solutions for contaminated water, competing in the Canadian National Water Treatment Competition.",
+  "links": {
+    "website": null,
+    "instagram": "https://www.instagram.com/wattreat",
+    "discord": null
+  },
+  "tags": ["environmental", "civil"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "No dedicated website found; Instagram is the main channel. No recruitment info confirmed at verification time.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

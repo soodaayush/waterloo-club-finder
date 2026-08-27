@@ -1,0 +1,24 @@
+{
+  "slug": "igem",
+  "name": "iGEM Waterloo",
+  "category": "DesignTeam",
+  "description": "Engineers biological processes using principles from synthetic biology, competing in the International Genetically Engineered Machine competition.",
+  "links": {
+    "website": "https://igem.uwaterloo.ca",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["biology", "synthetic-biology", "research"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site's join page states 'Applications have closed for 2025. Follow us on social media for updates :)' — this messaging appears stale (referencing 2025) and wasn't updated for the current cycle at verification time.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

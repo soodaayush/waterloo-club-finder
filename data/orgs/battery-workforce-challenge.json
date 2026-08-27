@@ -1,0 +1,24 @@
+{
+  "slug": "battery-workforce-challenge",
+  "name": "Battery Workforce Challenge (UW Evolution)",
+  "category": "DesignTeam",
+  "description": "Designs, builds, and integrates an electric vehicle battery pack into a Ram ProMaster cargo van as part of the U.S. Department of Energy's Advanced Vehicle Technology Competition.",
+  "links": {
+    "website": "https://uwevolution.com/",
+    "instagram": "https://www.instagram.com/battchallengeuwlc",
+    "discord": null
+  },
+  "tags": ["electrical", "mechanical", "battery"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Open",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": "https://uwevolution.com/survey.html?surveyId=252",
+      "notes": "The site has an active 'APPLY NOW' link with no stated deadline.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

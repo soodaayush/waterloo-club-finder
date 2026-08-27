@@ -1,0 +1,24 @@
+{
+  "slug": "se-soc",
+  "name": "Software Engineering Society (SE Soc)",
+  "category": "Club",
+  "description": "The student society representing UWaterloo Software Engineering students, running inter-cohort events and community activities.",
+  "links": {
+    "website": "https://uwaterloo.ca/software-engineering/undergraduate-students/current-undergraduate-students/se-student-society",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["community", "se", "events"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "General membership is automatic for all SE students; no application found for that. Exec/volunteer roles may have their own windows — check with se-soc@uwaterloo.ca.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

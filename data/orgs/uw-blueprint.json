@@ -1,0 +1,24 @@
+{
+  "slug": "uw-blueprint",
+  "name": "UW Blueprint",
+  "category": "DesignTeam",
+  "description": "A student design team building free software (web and mobile apps, tools) for non-profit organizations.",
+  "links": {
+    "website": "https://uwblueprint.org/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["software", "web-dev", "mobile", "social-good"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": "2026-07-01",
+      "closesAt": "2026-07-16",
+      "applyUrl": null,
+      "notes": "The application portal (uwblueprint.org/join-us) listed this cycle explicitly: 'Applications open Jul 1, 2026 6:00 PM and closes Jul 16, 2026 4:50 PM,' with final decisions around early August. That window has already passed.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "uwhpc",
+  "name": "UW High Performance Computing (UWHPC)",
+  "category": "DesignTeam",
+  "description": "Designs and builds high-performance software for computationally intensive workloads: scientific computing, ML infrastructure, compilers, and distributed systems.",
+  "links": {
+    "website": "https://www.uwhpc.com/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["software", "hpc", "systems"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Open",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": "https://docs.uwhpc.com/onboarding/",
+      "notes": "The site has an active 'Apply Now' button linking to an onboarding doc, with no stated deadline.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

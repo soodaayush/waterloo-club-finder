@@ -1,0 +1,24 @@
+{
+  "slug": "uwrs",
+  "name": "Waterloo RoboSoccer Team (UWRS)",
+  "category": "DesignTeam",
+  "description": "Develops autonomous humanoid robots to compete in 4-on-4 soccer matches at the annual RoboCup competition.",
+  "links": {
+    "website": "https://uw-robosoccer.github.io/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["robotics", "competition"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site is minimal and had no recruitment information at verification time. Contact uwrobosoccer@gmail.com.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

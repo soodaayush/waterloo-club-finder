@@ -1,0 +1,24 @@
+{
+  "slug": "uw-biotron",
+  "name": "UW Biomechatronics Design Team (Biotron)",
+  "category": "DesignTeam",
+  "description": "Creates solutions for problems in the biomedical field through four specialized sub-teams.",
+  "links": {
+    "website": "https://uwbiotron.netlify.app/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["biomedical", "mechatronics"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site has a 'Join Us' link but its content wasn't accessible during verification; no confirmed current recruitment. Contact biotron@uwaterloo.ca.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

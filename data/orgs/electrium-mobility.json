@@ -1,0 +1,24 @@
+{
+  "slug": "electrium-mobility",
+  "name": "Electrium Mobility",
+  "category": "DesignTeam",
+  "description": "Builds sustainable, portable electric transportation solutions such as electric skateboards, bikes, and scooters.",
+  "links": {
+    "website": "https://electriummobility.com/",
+    "instagram": "https://www.instagram.com/electriummobility",
+    "discord": null
+  },
+  "tags": ["mechanical", "electrical", "sustainability"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Upcoming",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The team's site states 'Applications open soon' as of this verification date, with no exact date given. Check electriummobility.com/join-our-team closer to term start.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "waterloo-alternative-protein-project",
+  "name": "Waterloo Alternative Protein Project",
+  "category": "DesignTeam",
+  "description": "Works toward a sustainable and secure food system through research, entrepreneurship, and innovation in alternative proteins.",
+  "links": {
+    "website": "https://www.altprotein.ca",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["sustainability", "research", "food-tech"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Open",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": "https://forms.gle/vsY8mqn7Cm27NFDH9",
+      "notes": "The site has an active 'Join' link to this Google Form, with no stated deadline.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

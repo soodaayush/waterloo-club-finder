@@ -1,0 +1,24 @@
+{
+  "slug": "uw-orbital",
+  "name": "UW Orbital",
+  "category": "DesignTeam",
+  "description": "Waterloo's CubeSat satellite design team, developing a 3U CubeSat for the Canadian Satellite Design Challenge.",
+  "links": {
+    "website": "https://www.uworbital.com/",
+    "instagram": "https://www.instagram.com/uworbital/",
+    "discord": null
+  },
+  "tags": ["aerospace", "embedded", "software"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Open",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": "https://www.uworbital.com/join-us",
+      "notes": "The team's join page lists onboarding as: '1. Join Our Discord, 2. Read through our onboarding' — no formal application or deadline, onboarding is open now.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

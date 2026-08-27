@@ -1,0 +1,24 @@
+{
+  "slug": "aci-student-design-team",
+  "name": "ACI Student Design Team",
+  "category": "DesignTeam",
+  "description": "Represents Waterloo at ACI (American Concrete Institute) student competitions held at the Spring and Fall Conventions, competing against teams worldwide.",
+  "links": {
+    "website": "https://uwaterloo.ca/sedra-student-design-centre/catalogs/directory-teams/aci-student-design-team",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["civil", "competition"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "No dedicated team website or public application found. Contact aciuwat@uwaterloo.ca to ask about joining.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "industry-4-0",
+  "name": "Industry 4.0",
+  "category": "DesignTeam",
+  "description": "Promotes the Management Engineering program at Waterloo through applied industry projects.",
+  "links": {
+    "website": "https://uwaterloo.ca/sedra-student-design-centre/catalogs/student-design-teams/industry-40",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["management-engineering"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "No dedicated external website found. Contact industry4team@uwaterloo.ca to ask about joining.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

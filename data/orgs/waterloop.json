@@ -1,0 +1,24 @@
+{
+  "slug": "waterloop",
+  "name": "Waterloop",
+  "category": "DesignTeam",
+  "description": "A student design team that historically developed hyperloop pod technology as part of the broader hyperloop competition ecosystem.",
+  "links": {
+    "website": "https://uwaterloo.ca/sedra-student-design-centre/catalogs/student-design-teams/waterloop",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["mechanical", "electrical", "embedded"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "Flagging for review: the team's historical domain (teamwaterloop.com) now redirects to an unrelated third-party site, and no current official website or social presence was found. This entry may need to be marked inactive/removed — please verify with the Sedra Student Design Centre before treating this as active.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "watolink",
+  "name": "WATOLINK",
+  "category": "DesignTeam",
+  "description": "Develops brain-computer interface applications, including EEG signal analysis for the NeuroTechX competition.",
+  "links": {
+    "website": "https://www.watolink.ca/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["software", "neurotech", "research"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "The site has a 'Join Our Team' link to their Linktree (linktr.ee/WATOLINK), but no deadline or confirmed open status was found there.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

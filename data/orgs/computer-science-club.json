@@ -1,0 +1,24 @@
+{
+  "slug": "computer-science-club",
+  "name": "Computer Science Club (CSC)",
+  "category": "Club",
+  "description": "Waterloo's student computing community, offering academic support, career help, talks, and social events for anyone interested in CS.",
+  "links": {
+    "website": "https://csclub.uwaterloo.ca/",
+    "instagram": "https://www.instagram.com/uwcsclub/",
+    "discord": null
+  },
+  "tags": ["community", "cs", "events"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "General membership/attendance is open to all students year-round; no application found. Exec/volunteer roles may open separately — check the 'Get Involved' page or email exec@csclub.uwaterloo.ca.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

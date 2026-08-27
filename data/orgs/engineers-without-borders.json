@@ -1,0 +1,24 @@
+{
+  "slug": "engineers-without-borders",
+  "name": "Engineers Without Borders (EWB)",
+  "category": "DesignTeam",
+  "description": "A University of Waterloo chapter of the NGO working toward ending poverty through sustainable social change initiatives.",
+  "links": {
+    "website": "https://www.facebook.com/ewbuw/",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["social-good", "sustainability"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "No dedicated website found (Facebook is the main channel, which couldn't be fully checked). No confirmed current recruitment.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}

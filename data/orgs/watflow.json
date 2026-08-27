@@ -1,0 +1,24 @@
+{
+  "slug": "watflow",
+  "name": "WATFlow",
+  "category": "DesignTeam",
+  "description": "Develops innovative water and wastewater treatment solutions for sustainable urban water management.",
+  "links": {
+    "website": "https://uwaterloo.ca/sedra-student-design-centre/catalogs/directory-teams/watflow",
+    "instagram": null,
+    "discord": null
+  },
+  "tags": ["environmental", "civil"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Closed",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "No dedicated website found; team is reachable via email (watflowdt@gmail.com) or LinkedIn. No recruitment info found.",
+      "lastVerified": "2026-08-27",
+      "source": "Manual"
+    }
+  ]
+}
