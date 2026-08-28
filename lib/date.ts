@@ -17,3 +17,17 @@ export function daysUntil(iso: string | null): number | null {
   const msPerDay = 24 * 60 * 60 * 1000;
   return Math.round((target.getTime() - today.getTime()) / msPerDay);
 }
+
+/** Whole days elapsed since the given ISO date. Negative if in the future. */
+export function daysSince(iso: string | null): number | null {
+  const d = daysUntil(iso);
+  return d === null ? null : -d;
+}
+
+/** A cycle is "stale" if nobody has re-checked its details in this long. */
+export const STALE_AFTER_DAYS = 60;
+
+export function isStale(lastVerified: string | null): boolean {
+  const d = daysSince(lastVerified);
+  return d !== null && d > STALE_AFTER_DAYS;
+}

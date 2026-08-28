@@ -63,6 +63,10 @@ transitions and the "Nd left" countdowns refresh without a rebuild, and
 [`.github/workflows/refresh.yml`](.github/workflows/refresh.yml) redeploys
 nightly as a backstop (needs a `VERCEL_DEPLOY_HOOK_URL` secret).
 
+Cycles whose `lastVerified` is more than `STALE_AFTER_DAYS`
+([`lib/date.ts`](lib/date.ts)) old are flagged with an "⚠ Unverified since …"
+note on the card and detail page, so old data visibly asks to be re-checked.
+
 ## Local development
 
 ```bash

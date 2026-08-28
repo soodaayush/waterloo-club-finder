@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Org } from "@/data/schema";
 import { getLatestCycle } from "@/lib/orgUtils";
+import { formatDate, isStale } from "@/lib/date";
 import { StatusBadge } from "@/components/StatusBadge";
 
 export function OrgCard({ org }: { org: Org }) {
   const cycle = getLatestCycle(org);
+  const stale = isStale(cycle.lastVerified);
 
   return (
     <Link
@@ -18,6 +20,11 @@ export function OrgCard({ org }: { org: Org }) {
       <p className="line-clamp-2 text-sm text-foreground/60">
         {org.description}
       </p>
+      {stale && (
+        <p className="text-xs text-amber-700 dark:text-amber-500">
+          ⚠ Unverified since {formatDate(cycle.lastVerified)}
+        </p>
+      )}
       <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-1">
         <span className="rounded-full border border-border px-2 py-0.5 text-xs text-foreground/50">
           {org.category}

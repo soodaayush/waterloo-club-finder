@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllOrgs, getOrgBySlug } from "@/lib/getOrgs";
 import { getEditOrgUrl } from "@/lib/github";
 import { StatusBadge } from "@/components/StatusBadge";
-import { formatDate } from "@/lib/date";
+import { formatDate, isStale } from "@/lib/date";
+import { effectiveStatus, getLatestCycle } from "@/lib/orgUtils";
 
 export function generateStaticParams() {
   return getAllOrgs().map((org) => ({ slug: org.slug }));
@@ -12,6 +14,35 @@ export function generateStaticParams() {
 // Re-generate periodically so date-derived statuses and "Nd left" countdowns
 // stay current without a rebuild. See lib/orgUtils.ts#effectiveStatus.
 export const revalidate = 3600;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const org = getOrgBySlug(slug);
+  if (!org) return {};
+
+  const cycle = getLatestCycle(org);
+  const status = effectiveStatus(cycle);
+  const title = `${org.name} — applications ${status}`;
+
+  return {
+    title,
+    description: org.description,
+    openGraph: {
+      title,
+      description: org.description,
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description: org.description,
+    },
+  };
+}
 
 const LINK_ICONS: Record<string, string> = {
   Website: "M13.5 6.5l4 4-4 4M4 12h13",
@@ -144,7 +175,14 @@ export default async function ClubPage({
                   <span className="sr-only"> (opens in new tab)</span>
                 </a>
               )}
-              <div className="mt-1 text-xs text-foreground/40">
+              <div
+                className={`mt-1 text-xs ${
+                  isStale(cycle.lastVerified)
+                    ? "text-amber-700 dark:text-amber-500"
+                    : "text-foreground/40"
+                }`}
+              >
+                {isStale(cycle.lastVerified) && "⚠ "}
                 Last verified {formatDate(cycle.lastVerified)} · source:{" "}
                 {cycle.source}
               </div>

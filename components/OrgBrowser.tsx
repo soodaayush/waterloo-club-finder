@@ -38,23 +38,33 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<Category | null>(null);
   const [status, setStatus] = useState<Status | null>(null);
+  const [showClosed, setShowClosed] = useState(false);
 
-  const filtered = useMemo(() => {
+  const { filtered, hiddenClosed } = useMemo(() => {
     const q = query.trim().toLowerCase();
+    let hiddenClosed = 0;
 
     const results = orgs.filter((org) => {
       if (category && org.category !== category) return false;
-      if (status && effectiveStatus(getLatestCycle(org)) !== status) return false;
-      if (!q) return true;
-      return (
+
+      const matchesText =
+        !q ||
         org.name.toLowerCase().includes(q) ||
         org.description.toLowerCase().includes(q) ||
-        org.tags.some((tag) => tag.toLowerCase().includes(q))
-      );
+        org.tags.some((tag) => tag.toLowerCase().includes(q));
+      if (!matchesText) return false;
+
+      const orgStatus = effectiveStatus(getLatestCycle(org));
+      if (status) return orgStatus === status;
+      if (!showClosed && orgStatus === "Closed") {
+        hiddenClosed++;
+        return false;
+      }
+      return true;
     });
 
-    return sortByUrgency(results);
-  }, [orgs, query, category, status]);
+    return { filtered: sortByUrgency(results), hiddenClosed };
+  }, [orgs, query, category, status, showClosed]);
 
   const hasActiveFilters = Boolean(query || category || status);
 
@@ -134,15 +144,28 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
         <span aria-live="polite">
           {filtered.length} {filtered.length === 1 ? "result" : "results"}
         </span>
-        {hasActiveFilters && (
-          <button
-            type="button"
-            onClick={clearFilters}
-            className="font-medium text-foreground/70 underline underline-offset-2 hover:text-foreground"
-          >
-            Clear filters
-          </button>
-        )}
+        <div className="flex items-center gap-4">
+          {!status && (hiddenClosed > 0 || showClosed) && (
+            <label className="flex cursor-pointer items-center gap-1.5 select-none">
+              <input
+                type="checkbox"
+                checked={showClosed}
+                onChange={(e) => setShowClosed(e.target.checked)}
+                className="accent-accent"
+              />
+              Show closed{hiddenClosed > 0 && ` (${hiddenClosed})`}
+            </label>
+          )}
+          {hasActiveFilters && (
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="font-medium text-foreground/70 underline underline-offset-2 hover:text-foreground"
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
       </div>
 
       {filtered.length === 0 ? (
