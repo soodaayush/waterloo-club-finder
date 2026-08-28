@@ -4,7 +4,7 @@
   "category": "DesignTeam",
   "description": "Focuses on autonomous vehicles and robotics, taking on multiple projects and competitions each year.",
   "links": {
-    "website": "https://www.uwaterloorobotics.com/",
+    "website": "https://uwaterloo.ca/sedra-student-design-centre/catalogs/student-design-teams/robotics-team-uwrt",
     "instagram": "https://www.instagram.com/uwrobotics",
     "discord": null
   },
@@ -17,8 +17,8 @@
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The team's website returned a 404 error during verification (site currently unreachable). Contact uwaterloorobotics@gmail.com.",
-      "lastVerified": "2026-08-27",
+      "notes": "One of Waterloo's oldest robotics teams, building an autonomous rover for the University Rover Challenge. Their standalone site (uwaterloorobotics.com) is down; reach them via github.com/uwrobotics, Instagram, or uwaterloorobotics@gmail.com.",
+      "lastVerified": "2026-08-28",
       "source": "Manual"
     }
   ]

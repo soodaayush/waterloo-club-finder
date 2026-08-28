@@ -4,7 +4,7 @@
   "category": "DesignTeam",
   "description": "Empowers undergraduate students to explore space research through stratospheric balloon payloads and microgravity electronics experiments.",
   "links": {
-    "website": "https://www.uwspaceresearch.ca/",
+    "website": null,
     "instagram": "https://www.instagram.com/uwspaceresearch",
     "discord": null
   },
@@ -17,8 +17,8 @@
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The team's site failed an SSL handshake during verification (unreachable). No recruitment info confirmed.",
-      "lastVerified": "2026-08-27",
+      "notes": "Active team running stratospheric balloon payloads and microgravity electronics experiments. Their site (uwspaceresearch.ca) currently fails to load over HTTPS, so Instagram (@uwspaceresearch) is the reliable channel. No open recruitment call confirmed.",
+      "lastVerified": "2026-08-28",
       "source": "Manual"
     }
   ]

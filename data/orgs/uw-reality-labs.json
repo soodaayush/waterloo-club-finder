@@ -4,7 +4,7 @@
   "category": "DesignTeam",
   "description": "A student design team building augmented and virtual reality projects and experiences.",
   "links": {
-    "website": null,
+    "website": "https://uwrealitylabs.com/",
     "instagram": "https://www.instagram.com/uwrealitylabs/",
     "discord": null
   },
@@ -17,8 +17,8 @@
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "No dedicated website or public application. Instagram (@uwrealitylabs) is the team's main channel, and there's no visible recruitment call right now.",
-      "lastVerified": "2026-08-27",
+      "notes": "Builds custom VR/AR hardware and software (custom headsets, hand-tracking, SLAM). The site, GitHub (github.com/uwrealitylabs), Discord, and Instagram are the main channels. No open recruitment call found at this check.",
+      "lastVerified": "2026-08-28",
       "source": "Manual"
     }
   ]
