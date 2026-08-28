@@ -1,0 +1,14 @@
+# Every change to the club dataset needs a maintainer review — this is where
+# a malicious PR would point an "Apply now" button at a hostile page, and the
+# schema check can't catch that. Requires "Require review from Code Owners"
+# in the branch protection rule for `main`.
+/data/            @soodaayush
+/data/schema.ts   @soodaayush
+
+# Anything that changes how data is rendered or the site is built.
+/lib/             @soodaayush
+/app/             @soodaayush
+/components/      @soodaayush
+/.github/         @soodaayush
+/next.config.ts   @soodaayush
+/package.json     @soodaayush

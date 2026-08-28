@@ -79,13 +79,32 @@ npm run build            # production build (also run in CI)
 ## Deploying
 
 1. Push this repo to GitHub.
-2. Set `NEXT_PUBLIC_GITHUB_REPO` (in Vercel's project settings, or a local
-   `.env.local`) to `your-username/your-repo-name` — this is what the "Edit
-   on GitHub" and "Add a new club" links point at. Without it, those links
-   fall back to a placeholder in [`lib/github.ts`](lib/github.ts).
+2. `lib/github.ts` hard-codes the repo as `soodaayush/waterloo-club-finder`
+   for the "Edit on GitHub" / "Add a new club" links. If the repo moves, set
+   `NEXT_PUBLIC_GITHUB_REPO` (Vercel project settings or `.env.local`) to the
+   new `owner/repo` instead of editing the file.
 3. Import the repo into [Vercel](https://vercel.com/new) and deploy — no
    database or other services required. Enable auto-deploy on `main` so
    merged PRs go live automatically.
+
+## Maintainer setup (do this before sharing the site widely)
+
+Contributions are unrestricted pull requests, so the merge step is the only
+gate. The schema check ([`data/schema.ts`](data/schema.ts)) enforces that
+every URL is a plain `https://` link and that social links point at the
+expected hosts, but it **cannot** tell a real application form from a hostile
+look-alike. Lock down `main` so nothing lands without you looking:
+
+On GitHub → **Settings → Branches → Add branch ruleset** for `main`:
+
+- Require a pull request before merging
+- Require review from Code Owners (uses [`.github/CODEOWNERS`](.github/CODEOWNERS))
+- Require status checks to pass: `validate` (from `ci.yml`)
+- Block force pushes; restrict who can push to `main` to maintainers only
+
+On every data PR, the [`pr-data-review`](.github/workflows/pr-data-review.yml)
+workflow lists the URLs it changes in the check summary — open each one before
+approving.
 
 ## Project structure
 

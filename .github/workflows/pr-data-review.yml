@@ -1,0 +1,38 @@
+name: PR data review
+
+# When a pull request touches the club dataset, list every external URL it
+# adds or changes in the job summary, so a reviewer can eyeball where the
+# links actually go before merging. The schema check guarantees they're
+# https:// web links; it can't tell a real application form from a hostile
+# look-alike — a human has to.
+
+on:
+  pull_request:
+    paths:
+      - "data/**"
+
+permissions:
+  contents: read
+
+jobs:
+  list-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: List changed URLs
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          {
+            echo "## URLs in changed data files"
+            echo
+            echo "Review where each of these points before approving."
+            echo
+            for f in $(git diff --name-only --diff-filter=d "$BASE" "$HEAD" -- 'data/orgs/*.json'); do
+              echo "### \`$f\`"
+              grep -oE 'https?://[^"]+' "$f" | sort -u | sed 's/^/- /' || echo "- (no URLs)"
+              echo
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
