@@ -1,0 +1,29 @@
+name: Nightly refresh
+
+# Redeploys the site once a day so date-derived statuses ("Open" → "Closed"
+# when a deadline passes) and the "Nd left" countdowns stay current even with
+# no data changes and no organic traffic to trigger ISR revalidation.
+#
+# Setup: create a Deploy Hook in the Vercel project (Settings → Git → Deploy
+# Hooks), then add its URL as the repo secret VERCEL_DEPLOY_HOOK_URL. Until
+# that secret exists this workflow runs and no-ops.
+
+on:
+  schedule:
+    - cron: "17 8 * * *" # 08:17 UTC daily (~03:17 America/Toronto)
+  workflow_dispatch: {}
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK_URL" ]; then
+            echo "VERCEL_DEPLOY_HOOK_URL not set — skipping. See this workflow's header for setup."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK_URL"
+          echo "Deploy hook triggered."

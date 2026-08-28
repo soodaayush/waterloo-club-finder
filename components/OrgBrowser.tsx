@@ -3,7 +3,7 @@
 import { useId, useMemo, useState } from "react";
 import type { Category, Org, Status } from "@/data/schema";
 import { OrgCard } from "@/components/OrgCard";
-import { getLatestCycle, sortByUrgency } from "@/lib/orgUtils";
+import { effectiveStatus, getLatestCycle, sortByUrgency } from "@/lib/orgUtils";
 
 const CATEGORIES: Category[] = ["DesignTeam", "Club", "CaseComp", "Other"];
 const STATUSES: Status[] = ["Open", "Upcoming", "Rolling", "Closed"];
@@ -44,7 +44,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
 
     const results = orgs.filter((org) => {
       if (category && org.category !== category) return false;
-      if (status && getLatestCycle(org).status !== status) return false;
+      if (status && effectiveStatus(getLatestCycle(org)) !== status) return false;
       if (!q) return true;
       return (
         org.name.toLowerCase().includes(q) ||

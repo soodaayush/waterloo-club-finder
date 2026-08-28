@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { getAllOrgs } from "@/lib/getOrgs";
-import { getLatestCycle } from "@/lib/orgUtils";
+import { effectiveStatus, getLatestCycle } from "@/lib/orgUtils";
 import { OrgBrowser } from "@/components/OrgBrowser";
+
+// Re-generate periodically so date-derived statuses and "Nd left" countdowns
+// stay current without a rebuild. See lib/orgUtils.ts#effectiveStatus.
+export const revalidate = 3600;
 
 export default function HomePage() {
   const orgs = getAllOrgs();
   const openCount = orgs.filter(
-    (org) => getLatestCycle(org).status === "Open"
+    (org) => effectiveStatus(getLatestCycle(org)) === "Open"
   ).length;
 
   return (

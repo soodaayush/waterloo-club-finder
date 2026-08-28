@@ -9,6 +9,10 @@ export function generateStaticParams() {
   return getAllOrgs().map((org) => ({ slug: org.slug }));
 }
 
+// Re-generate periodically so date-derived statuses and "Nd left" countdowns
+// stay current without a rebuild. See lib/orgUtils.ts#effectiveStatus.
+export const revalidate = 3600;
+
 const LINK_ICONS: Record<string, string> = {
   Website: "M13.5 6.5l4 4-4 4M4 12h13",
   Instagram:

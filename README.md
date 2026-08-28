@@ -53,6 +53,16 @@ public sources, but **deadlines are intentionally left unverified** rather
 than guessed — a wrong deadline is worse than no deadline. Filling these in
 as they're announced is the main way this project stays useful.
 
+**Status is derived, not hand-maintained.** Once `opensAt` / `closesAt` are
+set, [`effectiveStatus`](lib/orgUtils.ts) moves a cycle Upcoming → Open →
+Closed on its own as those dates pass; the stored `status` is only a
+fallback for `Rolling` or date-less cycles. The club pages use ISR
+(`export const revalidate` in [`app/page.tsx`](app/page.tsx) and
+[`app/clubs/[slug]/page.tsx`](app/clubs/[slug]/page.tsx)) so those
+transitions and the "Nd left" countdowns refresh without a rebuild, and
+[`.github/workflows/refresh.yml`](.github/workflows/refresh.yml) redeploys
+nightly as a backstop (needs a `VERCEL_DEPLOY_HOOK_URL` secret).
+
 ## Local development
 
 ```bash

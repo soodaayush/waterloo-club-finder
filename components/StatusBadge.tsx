@@ -1,5 +1,6 @@
 import type { Cycle } from "@/data/schema";
 import { daysUntil } from "@/lib/date";
+import { effectiveStatus } from "@/lib/orgUtils";
 
 const STYLES: Record<Cycle["status"], string> = {
   Open: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
@@ -17,14 +18,15 @@ const DOT_STYLES: Record<Cycle["status"], string> = {
 };
 
 export function StatusBadge({ cycle }: { cycle: Cycle }) {
-  let label: string = cycle.status;
+  const status = effectiveStatus(cycle);
+  let label: string = status;
 
-  if (cycle.status === "Open" && cycle.closesAt) {
+  if (status === "Open" && cycle.closesAt) {
     const days = daysUntil(cycle.closesAt);
     if (days !== null && days >= 0) {
       label = `Open · ${days === 0 ? "closes today" : `${days}d left`}`;
     }
-  } else if (cycle.status === "Upcoming" && cycle.opensAt) {
+  } else if (status === "Upcoming" && cycle.opensAt) {
     const days = daysUntil(cycle.opensAt);
     if (days !== null && days >= 0) {
       label = `Opens in ${days}d`;
@@ -33,11 +35,11 @@ export function StatusBadge({ cycle }: { cycle: Cycle }) {
 
   return (
     <span
-      className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium whitespace-nowrap ${STYLES[cycle.status]}`}
+      className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium whitespace-nowrap ${STYLES[status]}`}
     >
       <span
         aria-hidden="true"
-        className={`size-1.5 rounded-full ${DOT_STYLES[cycle.status]}`}
+        className={`size-1.5 rounded-full ${DOT_STYLES[status]}`}
       />
       {label}
     </span>

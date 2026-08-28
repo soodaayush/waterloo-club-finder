@@ -60,9 +60,12 @@ export default function ContributePage() {
             </>,
             "Sign in to GitHub (free account) if prompted — it will automatically fork the repo for you.",
             <>
-              Edit the JSON: update <code>status</code>,{" "}
-              <code>opensAt</code>, <code>closesAt</code>,{" "}
-              <code>applyUrl</code>, or <code>lastVerified</code>.
+              Edit the JSON: fill in <code>opensAt</code>,{" "}
+              <code>closesAt</code>, <code>applyUrl</code>, and{" "}
+              <code>lastVerified</code>. The badge flips between{" "}
+              <em>Upcoming</em>, <em>Open</em>, and <em>Closed</em> on its own
+              as those dates pass, so <code>status</code> only needs setting
+              for <em>Rolling</em> or when there are no dates yet.
             </>,
             "Commit the change as a new pull request.",
           ].map((step, i) => (
