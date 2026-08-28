@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllOrgs, getOrgBySlug } from "@/lib/getOrgs";
 import { getEditOrgUrl } from "@/lib/github";
 import { StatusBadge } from "@/components/StatusBadge";
+import { LinkIcon, type LinkLabel } from "@/components/LinkIcon";
 import { formatDate, isStale } from "@/lib/date";
 import { effectiveStatus, getLatestCycle } from "@/lib/orgUtils";
 import type { Status } from "@/data/schema";
@@ -51,14 +52,6 @@ export async function generateMetadata({
   };
 }
 
-const LINK_ICONS: Record<string, string> = {
-  Website: "M13.5 6.5l4 4-4 4M4 12h13",
-  Instagram:
-    "M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm4.5-.5h.01",
-  Discord:
-    "M8 9h.01M16 9h.01M8.5 16.5c2 1 5 1 7 0M6 6l-2 12 4 2 1.5-2.5M18 6l2 12-4 2-1.5-2.5",
-};
-
 export default async function ClubPage({
   params,
 }: {
@@ -73,7 +66,7 @@ export default async function ClubPage({
     { label: "Website", href: org.links.website },
     { label: "Instagram", href: org.links.instagram },
     { label: "Discord", href: org.links.discord },
-  ].filter((l) => l.href);
+  ].filter((l): l is { label: LinkLabel; href: string } => Boolean(l.href));
 
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-8 px-4 py-10 pb-28 sm:px-6 sm:py-14 sm:pb-14">
@@ -126,25 +119,12 @@ export default async function ClubPage({
           {links.map((l) => (
             <a
               key={l.label}
-              href={l.href!}
+              href={l.href}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-2 text-sm font-medium transition hover:border-accent hover:text-accent"
             >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                fill="none"
-                className="size-4"
-              >
-                <path
-                  d={LINK_ICONS[l.label]}
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <LinkIcon label={l.label} />
               {l.label}
               <span className="sr-only"> (opens in new tab)</span>
             </a>

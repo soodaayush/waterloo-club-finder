@@ -5,8 +5,8 @@
   "description": "Designs and builds high-performance software for computationally intensive workloads: scientific computing, ML infrastructure, compilers, and distributed systems.",
   "links": {
     "website": "https://www.uwhpc.com/",
-    "instagram": null,
-    "discord": null
+    "instagram": "https://www.instagram.com/uw.hpc",
+    "discord": "https://discord.com/invite/Q54uuaWvhA"
   },
   "tags": ["software", "hpc", "systems"],
   "cycles": [

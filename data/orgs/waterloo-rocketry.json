@@ -12,12 +12,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Upcoming",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
-      "applyUrl": null,
-      "notes": "The team's own site doesn't show a live application, but coverage of the team notes first-year recruitment 'kicks off in September' via a sign-up form that adds you to their Slack — so it should open very soon after this verification date.",
-      "lastVerified": "2026-08-27",
+      "applyUrl": "https://docs.google.com/forms/d/e/1FAIpQLSewaG7r4s2cqx92y0XSWVFhUW3j89a3_qGRDDavCQ3JIQBJbw/viewform",
+      "notes": "The team's join page has a live sign-up form open to all UW students — no formal application, no deadline. Submitting it gets you a Slack invite.",
+      "lastVerified": "2026-08-28",
       "source": "Manual"
     }
   ]

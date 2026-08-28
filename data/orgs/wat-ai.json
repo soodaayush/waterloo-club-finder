@@ -5,19 +5,19 @@
   "description": "The University of Waterloo's Artificial Intelligence design team, working on applied machine learning projects, research collaborations, and workshops.",
   "links": {
     "website": "https://watai.ca/",
-    "instagram": null,
-    "discord": null
+    "instagram": "https://www.instagram.com/wataiteam",
+    "discord": "https://discord.com/invite/Hn3XkK83tJ"
   },
   "tags": ["ai", "machine-learning", "research", "software"],
   "cycles": [
     {
       "term": "Fall 2026",
       "status": "Upcoming",
-      "opensAt": null,
+      "opensAt": "2026-09-09",
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Site is a JS app that couldn't be fully checked, but a search found WAT.ai typically opens core-member applications 'in the first month of a term' — for Fall, that's early-to-mid September, so as of this verification date applications haven't opened yet. Check watai.ca directly closer to term start.",
-      "lastVerified": "2026-08-27",
+      "notes": "Core-member applications are expected to open around September 7–9. Check watai.ca for the form once it's live.",
+      "lastVerified": "2026-08-28",
       "source": "Manual"
     }
   ]
