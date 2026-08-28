@@ -6,6 +6,14 @@ import { getEditOrgUrl } from "@/lib/github";
 import { StatusBadge } from "@/components/StatusBadge";
 import { formatDate, isStale } from "@/lib/date";
 import { effectiveStatus, getLatestCycle } from "@/lib/orgUtils";
+import type { Status } from "@/data/schema";
+
+const STATUS_PHRASE: Record<Status, string> = {
+  Open: "Applications open",
+  Closed: "Applications closed",
+  Upcoming: "Applications open soon",
+  Rolling: "Open to join anytime",
+};
 
 export function generateStaticParams() {
   return getAllOrgs().map((org) => ({ slug: org.slug }));
@@ -24,9 +32,8 @@ export async function generateMetadata({
   const org = getOrgBySlug(slug);
   if (!org) return {};
 
-  const cycle = getLatestCycle(org);
-  const status = effectiveStatus(cycle);
-  const title = `${org.name} — applications ${status}`;
+  const status = effectiveStatus(getLatestCycle(org));
+  const title = `${org.name} — ${STATUS_PHRASE[status]}`;
 
   return {
     title,
