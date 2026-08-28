@@ -31,6 +31,8 @@ export function StatusBadge({ cycle }: { cycle: Cycle }) {
     if (days !== null && days >= 0) {
       label = `Opens in ${days}d`;
     }
+  } else if (status === "Rolling") {
+    label = cycle.applyUrl ? "Apply anytime" : "Open to join";
   }
 
   return (

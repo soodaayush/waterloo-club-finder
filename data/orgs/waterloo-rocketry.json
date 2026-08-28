@@ -5,7 +5,7 @@
   "description": "Designs and builds high-powered liquid-fuel sounding rockets, competing annually at Launch Canada.",
   "links": {
     "website": "https://www.waterloorocketry.com/",
-    "instagram": null,
+    "instagram": "https://www.instagram.com/waterloorocketry/",
     "discord": null
   },
   "tags": ["aerospace", "hardware", "software", "embedded"],
