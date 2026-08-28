@@ -8,6 +8,7 @@
     "instagram": "https://www.instagram.com/uwarg",
     "discord": "https://discord.com/invite/rqMEV3m3hh"
   },
+  "disciplines": ["Firmware", "Software", "Electrical", "Mechanical"],
   "tags": ["robotics", "aerospace", "computer-vision", "embedded"],
   "cycles": [
     {

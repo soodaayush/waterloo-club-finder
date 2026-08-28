@@ -32,7 +32,9 @@ Each file in `data/orgs/<slug>.json` looks like:
   "category": "DesignTeam", // DesignTeam | Club | CaseComp | Other
   "description": "...",
   "links": { "website": "...", "instagram": null, "discord": null },
-  "tags": ["ai", "machine-learning"],
+  // skill axis, 1-5: Mechanical | Electrical | Firmware | Software | Civil | Science | Business
+  "disciplines": ["Software"],
+  "tags": ["ai", "machine-learning"], // domain, free-form (robotics, aerospace, ...)
   "cycles": [
     {
       "term": "Fall 2026",

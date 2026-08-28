@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["medtech", "software", "research"],
+  "disciplines": ["Software", "Science"],
+  "tags": ["medtech", "software", "research", "biotech", "biomedical", "machine-learning"],
   "cycles": [
     {
       "term": "Fall 2026",

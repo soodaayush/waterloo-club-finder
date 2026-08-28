@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/battchallengeuwlc",
     "discord": null
   },
-  "tags": ["electrical", "mechanical", "battery"],
+  "disciplines": ["Electrical", "Mechanical", "Firmware"],
+  "tags": ["electrical", "mechanical", "battery", "electric-vehicles", "automotive"],
   "cycles": [
     {
       "term": "Fall 2026",

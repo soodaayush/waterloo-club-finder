@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/waterloobaja",
     "discord": "https://discord.gg/KzwRmHU7wD"
   },
-  "tags": ["mechanical", "competition"],
+  "disciplines": ["Mechanical", "Electrical"],
+  "tags": ["mechanical", "competition", "automotive", "motorsport"],
   "cycles": [
     {
       "term": "Fall 2026",

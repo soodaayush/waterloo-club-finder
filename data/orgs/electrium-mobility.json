@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/electriummobility",
     "discord": "https://discord.com/invite/jggFVza4XR"
   },
-  "tags": ["mechanical", "electrical", "sustainability"],
+  "disciplines": ["Mechanical", "Electrical", "Firmware"],
+  "tags": ["mechanical", "electrical", "sustainability", "electric-vehicles", "transportation"],
   "cycles": [
     {
       "term": "Fall 2026",

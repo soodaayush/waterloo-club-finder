@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/team_waterloop",
     "discord": null
   },
-  "tags": ["mechanical", "electrical", "embedded"],
+  "disciplines": ["Mechanical", "Electrical", "Firmware"],
+  "tags": ["mechanical", "electrical", "embedded", "electric-vehicles", "transportation"],
   "cycles": [
     {
       "term": "Fall 2026",

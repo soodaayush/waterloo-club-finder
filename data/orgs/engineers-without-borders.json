@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["social-good", "sustainability"],
+  "disciplines": ["Civil", "Business"],
+  "tags": ["social-good", "sustainability", "global-development"],
   "cycles": [
     {
       "term": "Fall 2026",

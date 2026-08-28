@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["hardware", "research"],
+  "disciplines": ["Science"],
+  "tags": ["hardware", "research", "semiconductors", "data-storage"],
   "cycles": [
     {
       "term": "Fall 2026",

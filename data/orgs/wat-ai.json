@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/wataiteam",
     "discord": "https://discord.com/invite/Hn3XkK83tJ"
   },
-  "tags": ["ai", "machine-learning", "research", "software"],
+  "disciplines": ["Software"],
+  "tags": ["ai", "machine-learning", "research", "software", "deep-learning"],
   "cycles": [
     {
       "term": "Fall 2026",

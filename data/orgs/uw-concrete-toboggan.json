@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/waterloo_tbog",
     "discord": null
   },
-  "tags": ["mechanical", "civil"],
+  "disciplines": ["Mechanical", "Civil"],
+  "tags": ["mechanical", "civil", "concrete"],
   "cycles": [
     {
       "term": "Fall 2026",

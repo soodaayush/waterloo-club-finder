@@ -8,6 +8,7 @@
     "instagram": "https://www.instagram.com/wat.street/",
     "discord": null
   },
+  "disciplines": ["Software", "Business"],
   "tags": ["fintech", "quant", "software"],
   "cycles": [
     {

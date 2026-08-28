@@ -11,6 +11,7 @@ import {
   STATUS_PHRASE,
   effectiveStatus,
   getLatestCycle,
+  relatedOrgs,
 } from "@/lib/orgUtils";
 
 export function generateStaticParams() {
@@ -60,6 +61,7 @@ export default async function ClubPage({
   if (!org) notFound();
 
   const cycles = [...org.cycles].reverse();
+  const related = relatedOrgs(org, getAllOrgs());
   const links = [
     { label: "Website", href: org.links.website },
     { label: "Instagram", href: org.links.instagram },
@@ -101,6 +103,14 @@ export default async function ClubPage({
           <span className="rounded-full border border-border px-2.5 py-1 text-xs text-foreground/50">
             {CATEGORY_LABEL[org.category]}
           </span>
+          {org.disciplines.map((d) => (
+            <span
+              key={d}
+              className="rounded-full bg-foreground/6 px-2.5 py-1 text-xs text-foreground/70"
+            >
+              {d}
+            </span>
+          ))}
           {org.tags.map((tag) => (
             <span
               key={tag}
@@ -175,6 +185,32 @@ export default async function ClubPage({
           ))}
         </ul>
       </section>
+
+      {related.length > 0 && (
+        <section className="flex flex-col gap-4">
+          <h2 className="text-lg font-medium">Related teams</h2>
+          <ul className="flex flex-col gap-2">
+            {related.map((r) => (
+              <li key={r.slug}>
+                <Link
+                  href={`/clubs/${r.slug}`}
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-surface p-3 transition hover:border-accent/60 sm:p-4"
+                >
+                  <div className="flex min-w-0 flex-col gap-0.5">
+                    <span className="font-medium group-hover:text-accent">
+                      {r.name}
+                    </span>
+                    <span className="line-clamp-1 text-sm text-foreground/50">
+                      {r.description}
+                    </span>
+                  </div>
+                  <StatusBadge cycle={getLatestCycle(r)} />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="flex flex-col gap-2 rounded-2xl border border-dashed border-border p-4 text-sm sm:p-5">
         <p className="text-foreground/60">

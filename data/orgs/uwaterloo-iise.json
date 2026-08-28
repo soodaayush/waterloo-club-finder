@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["industrial-engineering", "professional-society"],
+  "disciplines": ["Business"],
+  "tags": ["industrial-engineering", "professional-society", "student-society"],
   "cycles": [
     {
       "term": "Fall 2026",

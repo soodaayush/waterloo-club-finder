@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/waterlooconcretecanoe/",
     "discord": "https://discord.gg/4JQPp2NJjv"
   },
-  "tags": ["civil", "materials"],
+  "disciplines": ["Civil", "Science"],
+  "tags": ["civil", "materials", "concrete", "construction"],
   "cycles": [
     {
       "term": "Fall 2026",

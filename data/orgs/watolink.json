@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/watolink_uw",
     "discord": null
   },
-  "tags": ["software", "neurotech", "research"],
+  "disciplines": ["Software", "Science"],
+  "tags": ["software", "neurotech", "research", "biotech", "machine-learning"],
   "cycles": [
     {
       "term": "Fall 2026",

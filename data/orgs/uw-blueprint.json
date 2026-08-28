@@ -8,6 +8,7 @@
     "instagram": "https://www.instagram.com/uwblueprint",
     "discord": null
   },
+  "disciplines": ["Software"],
   "tags": ["software", "web-dev", "mobile", "social-good"],
   "cycles": [
     {

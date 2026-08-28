@@ -16,6 +16,7 @@ function newOrgTemplate() {
     category: "Club",
     description: "One or two sentences describing the club or design team.",
     links: { website: null, instagram: null, discord: null },
+    disciplines: ["Software"],
     tags: [],
     cycles: [
       {

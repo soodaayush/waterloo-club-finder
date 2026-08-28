@@ -1,10 +1,11 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
-import type { Category, Org, Status } from "@/data/schema";
+import type { Category, Discipline, Org, Status } from "@/data/schema";
 import { OrgCard } from "@/components/OrgCard";
 import {
   CATEGORY_LABEL,
+  DISCIPLINES,
   STATUS_LABEL,
   effectiveStatus,
   getLatestCycle,
@@ -44,6 +45,7 @@ function Chip<T extends string>({
 export function OrgBrowser({ orgs }: { orgs: Org[] }) {
   const searchId = useId();
   const [query, setQuery] = useState("");
+  const [discipline, setDiscipline] = useState<Discipline | null>(null);
   const [category, setCategory] = useState<Category | null>(null);
   const [status, setStatus] = useState<Status | null>(null);
   const [showClosed, setShowClosed] = useState(false);
@@ -53,6 +55,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
     let hiddenClosed = 0;
 
     const results = orgs.filter((org) => {
+      if (discipline && !org.disciplines.includes(discipline)) return false;
       if (category && org.category !== category) return false;
 
       const matchesText =
@@ -72,12 +75,13 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
     });
 
     return { filtered: sortByUrgency(results), hiddenClosed };
-  }, [orgs, query, category, status, showClosed]);
+  }, [orgs, query, discipline, category, status, showClosed]);
 
-  const hasActiveFilters = Boolean(query || category || status);
+  const hasActiveFilters = Boolean(query || discipline || category || status);
 
   function clearFilters() {
     setQuery("");
+    setDiscipline(null);
     setCategory(null);
     setStatus(null);
   }
@@ -114,6 +118,23 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
             />
           </div>
         </div>
+
+        <fieldset className="flex flex-col gap-2">
+          <legend className="mb-0.5 text-xs font-medium text-foreground/50">
+            Discipline
+          </legend>
+          <div className="flex flex-wrap gap-2">
+            {DISCIPLINES.map((d) => (
+              <Chip
+                key={d}
+                value={d}
+                label={d}
+                active={discipline === d}
+                onClick={(v) => setDiscipline(discipline === v ? null : v)}
+              />
+            ))}
+          </div>
+        </fieldset>
 
         <fieldset className="flex flex-col gap-2">
           <legend className="mb-0.5 text-xs font-medium text-foreground/50">

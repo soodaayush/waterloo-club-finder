@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["management-engineering"],
+  "disciplines": ["Business", "Software"],
+  "tags": ["management-engineering", "student-society"],
   "cycles": [
     {
       "term": "Fall 2026",

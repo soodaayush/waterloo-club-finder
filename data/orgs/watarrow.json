@@ -8,6 +8,7 @@
     "instagram": "https://www.instagram.com/uwatarrow",
     "discord": null
   },
+  "disciplines": ["Mechanical", "Electrical"],
   "tags": ["aerospace", "mechanical"],
   "cycles": [
     {

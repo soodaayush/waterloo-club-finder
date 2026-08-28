@@ -1,9 +1,66 @@
-import type { Cycle, Org, Status } from "@/data/schema";
+import type { Cycle, Discipline, Org, Status } from "@/data/schema";
 import { daysUntil } from "@/lib/date";
+
+/** Disciplines in display order (hardware → software → the rest). */
+export const DISCIPLINES: Discipline[] = [
+  "Mechanical",
+  "Electrical",
+  "Firmware",
+  "Software",
+  "Civil",
+  "Science",
+  "Business",
+];
 
 /** Latest cycle by term string order as authored (last entry = most current). */
 export function getLatestCycle(org: Org) {
   return org.cycles[org.cycles.length - 1];
+}
+
+/**
+ * Tags too broad to signal "a student into X would also like Y" — they either
+ * mirror a discipline or apply to a third of the list. Ignored when matching
+ * related orgs (still shown/searchable everywhere else).
+ */
+const BROAD_TAGS = new Set([
+  "software",
+  "mechanical",
+  "electrical",
+  "embedded",
+  "civil",
+  "hardware",
+  "research",
+  "competition",
+  "sustainability",
+  "community",
+  "events",
+  "professional-society",
+]);
+
+/**
+ * Other orgs a student looking at `org` would plausibly also consider.
+ * Requires at least one *specific* shared tag ("robotics", "computer-vision");
+ * shared disciplines only break ties among those.
+ */
+export function relatedOrgs(org: Org, all: Org[], limit = 4): Org[] {
+  const specific = new Set(org.tags.filter((t) => !BROAD_TAGS.has(t)));
+
+  return all
+    .filter((o) => o.slug !== org.slug)
+    .map((o) => ({
+      org: o,
+      tagScore: o.tags.filter((t) => specific.has(t)).length,
+      discScore: o.disciplines.filter((d) => org.disciplines.includes(d)).length,
+    }))
+    .filter((x) => x.tagScore > 0)
+    .sort(
+      (a, b) =>
+        b.tagScore - a.tagScore ||
+        b.discScore - a.discScore ||
+        a.org.name.localeCompare(b.org.name)
+    )
+    .slice(0, limit)
+    .map((x) => x.org);
 }
 
 /**

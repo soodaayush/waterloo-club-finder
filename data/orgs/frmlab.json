@@ -8,6 +8,7 @@
     "instagram": null,
     "discord": null
   },
+  "disciplines": ["Software", "Civil"],
   "tags": ["architecture", "computational-design", "research"],
   "cycles": [
     {

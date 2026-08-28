@@ -41,12 +41,12 @@ export function OrgCard({ org }: { org: Org }) {
         <span className="rounded-full border border-border px-2 py-0.5 text-xs text-foreground/50">
           {CATEGORY_LABEL[org.category]}
         </span>
-        {org.tags.slice(0, 2).map((tag) => (
+        {org.disciplines.slice(0, 3).map((d) => (
           <span
-            key={tag}
-            className="rounded-full bg-foreground/5 px-2 py-0.5 text-xs text-foreground/50"
+            key={d}
+            className="rounded-full bg-foreground/6 px-2 py-0.5 text-xs text-foreground/60"
           >
-            {tag}
+            {d}
           </span>
         ))}
         {links.length > 0 && (

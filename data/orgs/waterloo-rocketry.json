@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/waterloorocketry/",
     "discord": null
   },
-  "tags": ["aerospace", "hardware", "software", "embedded"],
+  "disciplines": ["Mechanical", "Firmware", "Software", "Electrical"],
+  "tags": ["aerospace", "hardware", "software", "embedded", "space", "rocketry"],
   "cycles": [
     {
       "term": "Fall 2026",

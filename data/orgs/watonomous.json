@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/watonomous/",
     "discord": "https://discord.gg/62NsX8pBwJ"
   },
-  "tags": ["robotics", "autonomous-vehicles", "software", "computer-vision"],
+  "disciplines": ["Software", "Firmware"],
+  "tags": ["robotics", "autonomous-vehicles", "software", "computer-vision", "machine-learning"],
   "cycles": [
     {
       "term": "Fall 2026",

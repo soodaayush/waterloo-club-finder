@@ -8,6 +8,7 @@
     "instagram": "https://www.instagram.com/uw.hpc",
     "discord": "https://discord.com/invite/Q54uuaWvhA"
   },
+  "disciplines": ["Software"],
   "tags": ["software", "hpc", "systems"],
   "cycles": [
     {

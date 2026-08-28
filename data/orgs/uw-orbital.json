@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/uworbital/",
     "discord": "https://discord.gg/j32DZswg5b"
   },
-  "tags": ["aerospace", "embedded", "software"],
+  "disciplines": ["Firmware", "Software", "Electrical", "Mechanical"],
+  "tags": ["aerospace", "embedded", "software", "space", "satellites"],
   "cycles": [
     {
       "term": "Fall 2026",

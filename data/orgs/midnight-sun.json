@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/uwmidsun",
     "discord": "https://discord.gg/aEVgJbu3Qm"
   },
-  "tags": ["mechanical", "electrical", "sustainability"],
+  "disciplines": ["Mechanical", "Electrical", "Firmware"],
+  "tags": ["mechanical", "electrical", "sustainability", "electric-vehicles", "automotive", "motorsport", "solar", "renewable-energy"],
   "cycles": [
     {
       "term": "Fall 2026",

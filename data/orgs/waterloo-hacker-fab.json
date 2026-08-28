@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": "https://discord.gg/hacker-fab-1143959339179200562"
   },
-  "tags": ["hardware", "semiconductors", "research"],
+  "disciplines": ["Electrical", "Science", "Mechanical"],
+  "tags": ["hardware", "semiconductors", "research", "fabrication"],
   "cycles": [
     {
       "term": "Fall 2026",

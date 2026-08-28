@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["sustainability", "architecture", "civil"],
+  "disciplines": ["Civil", "Electrical"],
+  "tags": ["sustainability", "architecture", "civil", "construction", "housing"],
   "cycles": [
     {
       "term": "Fall 2026",

@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/uwcsclub/",
     "discord": "https://discord.gg/pHfYBCg"
   },
-  "tags": ["community", "cs", "events"],
+  "disciplines": ["Software"],
+  "tags": ["community", "cs", "events", "student-society", "programming"],
   "cycles": [
     {
       "term": "Fall 2026",

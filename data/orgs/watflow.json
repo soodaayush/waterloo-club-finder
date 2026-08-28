@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["environmental", "civil"],
+  "disciplines": ["Civil", "Science"],
+  "tags": ["environmental", "civil", "water-treatment"],
   "cycles": [
     {
       "term": "Fall 2026",

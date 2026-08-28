@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/uwaterlooelectric/",
     "discord": null
   },
-  "tags": ["mechanical", "electrical", "embedded"],
+  "disciplines": ["Mechanical", "Electrical", "Firmware"],
+  "tags": ["mechanical", "electrical", "embedded", "electric-vehicles", "automotive", "motorsport"],
   "cycles": [
     {
       "term": "Fall 2026",

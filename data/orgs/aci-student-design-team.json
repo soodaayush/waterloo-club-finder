@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["civil", "competition"],
+  "disciplines": ["Civil", "Science"],
+  "tags": ["civil", "competition", "concrete", "structural"],
   "cycles": [
     {
       "term": "Fall 2026",

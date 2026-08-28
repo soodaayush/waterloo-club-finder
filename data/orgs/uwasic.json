@@ -8,6 +8,7 @@
     "instagram": null,
     "discord": "https://discord.gg/rnfTvG9ckY"
   },
+  "disciplines": ["Electrical"],
   "tags": ["hardware", "semiconductors", "electrical"],
   "cycles": [
     {

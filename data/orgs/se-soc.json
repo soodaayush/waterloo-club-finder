@@ -8,7 +8,8 @@
     "instagram": "https://www.instagram.com/uwsesoc/",
     "discord": "https://discord.gg/gnthpmjHUD"
   },
-  "tags": ["community", "se", "events"],
+  "disciplines": ["Software"],
+  "tags": ["community", "se", "events", "student-society"],
   "cycles": [
     {
       "term": "Fall 2026",

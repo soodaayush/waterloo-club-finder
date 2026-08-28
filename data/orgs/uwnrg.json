@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["nanotechnology", "research"],
+  "disciplines": ["Science", "Electrical"],
+  "tags": ["nanotechnology", "research", "nanorobotics"],
   "cycles": [
     {
       "term": "Fall 2026",

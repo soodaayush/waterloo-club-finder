@@ -8,6 +8,7 @@
     "instagram": null,
     "discord": null
   },
+  "disciplines": ["Mechanical", "Electrical", "Firmware", "Software"],
   "tags": ["robotics", "competition"],
   "cycles": [
     {

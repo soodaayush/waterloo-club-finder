@@ -8,7 +8,8 @@
     "instagram": null,
     "discord": null
   },
-  "tags": ["mechanical", "sustainability", "automotive"],
+  "disciplines": ["Mechanical", "Electrical", "Firmware"],
+  "tags": ["mechanical", "sustainability", "automotive", "electric-vehicles"],
   "cycles": [
     {
       "term": "Fall 2026",
