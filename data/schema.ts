@@ -37,6 +37,10 @@ function hostUrl(...hosts: string[]) {
 
 export const CycleSchema = z.object({
   term: z.string().min(1),
+  // Reflects GENERAL / new-member recruitment only — the "how do I join?"
+  // question. Exec/lead/volunteer hiring goes in `notes`, never `status`
+  // (or, if it needs dates, its own cycle with a distinct `term`).
+  // See "Club data guidelines" in AGENTS.md.
   status: StatusEnum,
   opensAt: z.string().date().nullable(),
   closesAt: z.string().date().nullable(),

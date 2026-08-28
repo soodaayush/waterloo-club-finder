@@ -53,6 +53,12 @@ public sources, but **deadlines are intentionally left unverified** rather
 than guessed — a wrong deadline is worse than no deadline. Filling these in
 as they're announced is the main way this project stays useful.
 
+**A cycle tracks general / new-member recruitment only** — the "how do I
+join?" question. Exec / lead / volunteer hiring goes in `notes`, never
+`status`; if it needs its own dates, it gets its own cycle with a distinct
+`term` (e.g. `"Fall 2026 — Exec hiring"`). Full rules in
+[`AGENTS.md`](AGENTS.md#club-data-guidelines).
+
 **Status is derived, not hand-maintained.** Once `opensAt` / `closesAt` are
 set, [`effectiveStatus`](lib/orgUtils.ts) moves a cycle Upcoming → Open →
 Closed on its own as those dates pass; the stored `status` is only a

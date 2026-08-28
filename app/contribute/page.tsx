@@ -2,7 +2,7 @@ import Link from "next/link";
 import { GITHUB_REPO, getNewOrgUrl } from "@/lib/github";
 
 export const metadata = {
-  title: "Contribute — Waterloo Club Finder",
+  title: "Contribute",
 };
 
 export default function ContributePage() {
@@ -34,7 +34,7 @@ export default function ContributePage() {
           How this site stays accurate
         </h1>
         <p className="text-foreground/60">
-          There&apos;s no admin team manually running this — the data behind
+          There&apos;s no admin team manually running this. The data behind
           every club page lives as plain JSON files in{" "}
           <a
             href={`https://github.com/${GITHUB_REPO}`}
@@ -44,8 +44,8 @@ export default function ContributePage() {
           >
             this project&apos;s GitHub repo
           </a>
-          . Updates happen through pull requests, which anyone can open. No
-          git experience required — GitHub&apos;s web editor handles the
+          . Updates happen through pull requests, which anyone can open. You
+          don&apos;t need git experience; GitHub&apos;s web editor handles the
           fork-and-PR steps for you.
         </p>
       </header>
@@ -58,7 +58,7 @@ export default function ContributePage() {
               Open the club&apos;s page and click{" "}
               <strong>&quot;Edit on GitHub&quot;</strong>.
             </>,
-            "Sign in to GitHub (free account) if prompted — it will automatically fork the repo for you.",
+            "Sign in to GitHub (free account) if prompted. It forks the repo for you automatically.",
             <>
               Edit the JSON: fill in <code>opensAt</code>,{" "}
               <code>closesAt</code>, <code>applyUrl</code>, and{" "}
@@ -77,6 +77,13 @@ export default function ContributePage() {
             </li>
           ))}
         </ol>
+        <p className="text-sm text-foreground/60">
+          The status tracks <strong>joining as a general member</strong>,
+          which is the question a student browsing this site is asking. Exec,
+          lead, or volunteer hiring belongs in <code>notes</code>, not{" "}
+          <code>status</code>. A club whose leadership applications open still
+          shows whatever its general membership is.
+        </p>
       </section>
 
       <section className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-5 sm:p-6">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Org } from "@/data/schema";
-import { getLatestCycle } from "@/lib/orgUtils";
+import { CATEGORY_LABEL, getLatestCycle } from "@/lib/orgUtils";
 import { formatDate, isStale } from "@/lib/date";
 import { StatusBadge } from "@/components/StatusBadge";
 import { LinkIcon, type LinkLabel } from "@/components/LinkIcon";
@@ -39,7 +39,7 @@ export function OrgCard({ org }: { org: Org }) {
       )}
       <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-1">
         <span className="rounded-full border border-border px-2 py-0.5 text-xs text-foreground/50">
-          {org.category}
+          {CATEGORY_LABEL[org.category]}
         </span>
         {org.tags.slice(0, 2).map((tag) => (
           <span

@@ -3,17 +3,25 @@
 import { useId, useMemo, useState } from "react";
 import type { Category, Org, Status } from "@/data/schema";
 import { OrgCard } from "@/components/OrgCard";
-import { effectiveStatus, getLatestCycle, sortByUrgency } from "@/lib/orgUtils";
+import {
+  CATEGORY_LABEL,
+  STATUS_LABEL,
+  effectiveStatus,
+  getLatestCycle,
+  sortByUrgency,
+} from "@/lib/orgUtils";
 
 const CATEGORIES: Category[] = ["DesignTeam", "Club", "CaseComp", "Other"];
 const STATUSES: Status[] = ["Open", "Upcoming", "Rolling", "Closed"];
 
 function Chip<T extends string>({
   value,
+  label,
   active,
   onClick,
 }: {
   value: T;
+  label: string;
   active: boolean;
   onClick: (value: T) => void;
 }) {
@@ -28,7 +36,7 @@ function Chip<T extends string>({
           : "border-border text-foreground/60 hover:border-accent/60 hover:text-foreground"
       }`}
     >
-      {value}
+      {label}
     </button>
   );
 }
@@ -116,6 +124,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
               <Chip
                 key={c}
                 value={c}
+                label={CATEGORY_LABEL[c]}
                 active={category === c}
                 onClick={(v) => setCategory(category === v ? null : v)}
               />
@@ -132,6 +141,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
               <Chip
                 key={s}
                 value={s}
+                label={STATUS_LABEL[s]}
                 active={status === s}
                 onClick={(v) => setStatus(status === v ? null : v)}
               />

@@ -28,10 +28,34 @@ export function effectiveStatus(cycle: Cycle): Status {
   return cycle.status;
 }
 
+/** Human phrasing for a status, used in page titles and share cards. */
+export const STATUS_PHRASE: Record<Status, string> = {
+  Open: "Applications open",
+  Closed: "Applications closed",
+  Upcoming: "Applications open soon",
+  Rolling: "Open to join anytime",
+};
+
+/** Short label for a status, used on filter chips. */
+export const STATUS_LABEL: Record<Status, string> = {
+  Open: "Open",
+  Upcoming: "Upcoming",
+  Rolling: "No deadline",
+  Closed: "Closed",
+};
+
+/** Display label for a category (the raw values are PascalCase). */
+export const CATEGORY_LABEL: Record<string, string> = {
+  DesignTeam: "Design Team",
+  Club: "Club",
+  CaseComp: "Case Comp",
+  Other: "Other",
+};
+
 const STATUS_URGENCY: Record<string, number> = {
   Open: 0,
-  Rolling: 1,
-  Upcoming: 2,
+  Upcoming: 1,
+  Rolling: 2,
   Closed: 3,
 };
 

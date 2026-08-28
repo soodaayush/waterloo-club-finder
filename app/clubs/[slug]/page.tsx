@@ -6,15 +6,12 @@ import { getEditOrgUrl } from "@/lib/github";
 import { StatusBadge } from "@/components/StatusBadge";
 import { LinkIcon, type LinkLabel } from "@/components/LinkIcon";
 import { formatDate, isStale } from "@/lib/date";
-import { effectiveStatus, getLatestCycle } from "@/lib/orgUtils";
-import type { Status } from "@/data/schema";
-
-const STATUS_PHRASE: Record<Status, string> = {
-  Open: "Applications open",
-  Closed: "Applications closed",
-  Upcoming: "Applications open soon",
-  Rolling: "Open to join anytime",
-};
+import {
+  CATEGORY_LABEL,
+  STATUS_PHRASE,
+  effectiveStatus,
+  getLatestCycle,
+} from "@/lib/orgUtils";
 
 export function generateStaticParams() {
   return getAllOrgs().map((org) => ({ slug: org.slug }));
@@ -34,18 +31,19 @@ export async function generateMetadata({
   if (!org) return {};
 
   const status = effectiveStatus(getLatestCycle(org));
-  const title = `${org.name} — ${STATUS_PHRASE[status]}`;
+  const title = `${org.name} · ${STATUS_PHRASE[status]}`;
 
   return {
     title,
     description: org.description,
+    alternates: { canonical: `/clubs/${org.slug}` },
     openGraph: {
       title,
       description: org.description,
-      type: "website",
+      url: `/clubs/${org.slug}`,
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description: org.description,
     },
@@ -101,7 +99,7 @@ export default async function ClubPage({
         <p className="text-foreground/60">{org.description}</p>
         <div className="flex flex-wrap gap-2 pt-1">
           <span className="rounded-full border border-border px-2.5 py-1 text-xs text-foreground/50">
-            {org.category}
+            {CATEGORY_LABEL[org.category]}
           </span>
           {org.tags.map((tag) => (
             <span
@@ -181,9 +179,8 @@ export default async function ClubPage({
       <section className="flex flex-col gap-2 rounded-2xl border border-dashed border-border p-4 text-sm sm:p-5">
         <p className="text-foreground/60">
           Know a deadline that&apos;s changed, or spot something wrong here?
-          This page is backed by a JSON file in our GitHub repo — edits go
-          through a pull request, no login beyond a free GitHub account
-          needed.
+          This page is backed by a JSON file in our GitHub repo. Edits go
+          through a pull request, and you only need a free GitHub account.
         </p>
         <a
           href={getEditOrgUrl(org.slug)}

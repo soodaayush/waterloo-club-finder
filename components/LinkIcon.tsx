@@ -3,7 +3,8 @@ export type LinkLabel = "Website" | "Instagram" | "Discord";
 // Website / Instagram are stroked line icons; Discord is its official brand
 // glyph, which only reads correctly as a filled shape.
 const ICONS: Record<LinkLabel, { d: string; filled?: boolean }> = {
-  Website: { d: "M13.5 6.5l4 4-4 4M4 12h13" },
+  // Right-pointing arrow, tip on the shaft line and symmetric top/bottom.
+  Website: { d: "M4 12h13M13 7l5 5-5 5" },
   Instagram: {
     d: "M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm4.5-.5h.01",
   },

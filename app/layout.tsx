@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,10 +14,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const description =
+  "Track application status for UWaterloo clubs and design teams in one place.";
+
 export const metadata: Metadata = {
-  title: "Waterloo Club & Design Team Finder",
-  description:
-    "Track application status for UWaterloo clubs and design teams in one place.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s · ${SITE_NAME}`,
+  },
+  description,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    url: "/",
+    title: SITE_NAME,
+    description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description,
+  },
 };
 
 export const viewport: Viewport = {
@@ -68,12 +87,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </div>
 
         <footer className="border-t border-border">
-          <div className="mx-auto w-full max-w-5xl px-4 py-6 text-xs text-foreground/50 sm:px-6">
-            Not an official University of Waterloo site. Data is
-            community-maintained —{" "}
-            <Link href="/contribute" className="underline underline-offset-2">
-              see something wrong?
-            </Link>
+          <div className="mx-auto flex w-full max-w-5xl flex-col gap-1.5 px-4 py-6 text-xs text-foreground/50 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+            <span>
+              Not an official University of Waterloo site. Data is
+              community-maintained.{" "}
+              <Link href="/contribute" className="underline underline-offset-2">
+                See something wrong?
+              </Link>
+            </span>
+            <span>
+              Made by{" "}
+              <a
+                href="https://www.aayushsood.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-foreground"
+              >
+                Aayush Sood
+              </a>
+            </span>
           </div>
         </footer>
       </body>

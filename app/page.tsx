@@ -22,8 +22,8 @@ export default function HomePage() {
         </h1>
         <p className="max-w-2xl text-balance text-base text-foreground/60">
           One place to check application status across UWaterloo clubs and
-          design teams — instead of Instagram, Discord, and a dozen
-          websites. Data is community-maintained on GitHub; see something
+          design teams, instead of Instagram, Discord, and a dozen
+          websites. Data is community-maintained on GitHub. See something
           stale?{" "}
           <Link
             href="/contribute"
