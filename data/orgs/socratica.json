@@ -1,0 +1,25 @@
+{
+  "slug": "socratica",
+  "name": "Socratica",
+  "category": "Club",
+  "description": "An interdisciplinary maker collective that meets weekly in Waterloo to work on passion projects, from software and hardware to art and writing.",
+  "links": {
+    "website": "https://socratica.info",
+    "instagram": null,
+    "discord": null
+  },
+  "disciplines": ["Software"],
+  "tags": ["maker", "community"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "No application. Weekly Sunday co-working sessions in Waterloo, open to anyone building something — find a session at map.socratica.info.",
+      "lastVerified": "2026-08-28",
+      "source": "Manual"
+    }
+  ]
+}

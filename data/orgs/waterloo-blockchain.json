@@ -1,0 +1,25 @@
+{
+  "slug": "waterloo-blockchain",
+  "name": "Waterloo Blockchain",
+  "category": "Club",
+  "description": "A student-run blockchain non-profit building crypto and web3 products, competing at hackathons like ETHGlobal and partnering with industry.",
+  "links": {
+    "website": "https://www.waterlooblockchain.ca",
+    "instagram": "https://www.instagram.com/waterlooblockchain",
+    "discord": "https://discord.gg/2vHmAAssAb"
+  },
+  "disciplines": ["Software", "Business"],
+  "tags": ["blockchain", "crypto", "web3", "student-society"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "Community access is open through the Discord. Project cohorts (builders, designers, strategists) are recruited by application at the start of each term — watch the Discord for the current window.",
+      "lastVerified": "2026-08-28",
+      "source": "Manual"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "uw-vex-u-robotics",
+  "name": "UW VEX U Robotics",
+  "category": "DesignTeam",
+  "description": "Designs, builds, and programs robots for the international VEX U Robotics competition, open to students with or without competitive robotics experience.",
+  "links": {
+    "website": "https://www.uwvexu.ca",
+    "instagram": null,
+    "discord": null
+  },
+  "disciplines": ["Mechanical", "Electrical", "Firmware", "Software"],
+  "tags": ["robotics", "competition"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": "https://forms.gle/XppdTP3Vh5YnYyHJA",
+      "notes": "The site has an active join form and welcomes members with or without prior experience. No deadline stated. Won the Inspire Award at the 2025 VEX U World Championship.",
+      "lastVerified": "2026-08-28",
+      "source": "Manual"
+    }
+  ]
+}

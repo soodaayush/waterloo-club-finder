@@ -1,0 +1,25 @@
+{
+  "slug": "uw-data-science-club",
+  "name": "UW Data Science Club (UWDSC)",
+  "category": "Club",
+  "description": "A student community for data science and machine learning: workshops, project teams, weekly Leetcode sessions, and the CxC datathon.",
+  "links": {
+    "website": "https://www.uwdatascience.ca",
+    "instagram": "https://www.instagram.com/uwaterloodsc",
+    "discord": "https://discord.gg/2gBB3ufyCR"
+  },
+  "disciplines": ["Software"],
+  "tags": ["data-science", "machine-learning", "student-society", "community"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "General membership is open — join the Discord for workshops, project teams, and Leetcode sessions. Executive-team applications for Fall 2026 are open separately at uwdatascience.ca/apply.",
+      "lastVerified": "2026-08-28",
+      "source": "Manual"
+    }
+  ]
+}

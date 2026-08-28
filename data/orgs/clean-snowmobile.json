@@ -1,0 +1,25 @@
+{
+  "slug": "clean-snowmobile",
+  "name": "Clean Snowmobile Team",
+  "category": "DesignTeam",
+  "description": "Designs, builds, and races a low-emission, low-noise snowmobile for the SAE Clean Snowmobile Challenge.",
+  "links": {
+    "website": "https://uwaterloo.ca/sedra-student-design-centre/directory-teams/clean-snowmobile-team",
+    "instagram": null,
+    "discord": null
+  },
+  "disciplines": ["Mechanical", "Electrical", "Firmware"],
+  "tags": ["automotive", "sustainability", "competition"],
+  "cycles": [
+    {
+      "term": "Fall 2026",
+      "status": "Rolling",
+      "opensAt": null,
+      "closesAt": null,
+      "applyUrl": null,
+      "notes": "No formal application. Email the leads at uwsled@gmail.com, drop by a weekly meeting or the term-start open house.",
+      "lastVerified": "2026-08-28",
+      "source": "Manual"
+    }
+  ]
+}
