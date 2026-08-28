@@ -12,7 +12,7 @@ import {
   sortByUrgency,
 } from "@/lib/orgUtils";
 
-const CATEGORIES: Category[] = ["DesignTeam", "Club", "CaseComp", "Other"];
+const CATEGORY_ORDER: Category[] = ["DesignTeam", "Club", "CaseComp", "Other"];
 const STATUSES: Status[] = ["Open", "Upcoming", "Rolling", "Closed"];
 
 function Chip<T extends string>({
@@ -44,6 +44,9 @@ function Chip<T extends string>({
 
 export function OrgBrowser({ orgs }: { orgs: Org[] }) {
   const searchId = useId();
+  const categories = CATEGORY_ORDER.filter((c) =>
+    orgs.some((o) => o.category === c)
+  );
   const [query, setQuery] = useState("");
   const [discipline, setDiscipline] = useState<Discipline | null>(null);
   const [category, setCategory] = useState<Category | null>(null);
@@ -141,7 +144,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
             Category
           </legend>
           <div className="flex flex-wrap gap-2">
-            {CATEGORIES.map((c) => (
+            {categories.map((c) => (
               <Chip
                 key={c}
                 value={c}
@@ -198,6 +201,30 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
           )}
         </div>
       </div>
+
+      <details className="rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-foreground/60 [&_summary]:cursor-pointer">
+        <summary className="font-medium text-foreground/70 select-none">
+          What do the status labels mean?
+        </summary>
+        <ul className="mt-3 flex flex-col gap-2">
+          {[
+            ["bg-green-500", "Open", "Applications are open now. A countdown shows when they close."],
+            ["bg-amber-500", "Upcoming", "Applications open on a set date."],
+            ["bg-blue-500", "Open to join", "No application. Show up to a meeting or join the Discord."],
+            ["bg-blue-500", "Apply anytime", "There's an application form, but no deadline."],
+            ["bg-gray-400", "Closed", "The application window has passed."],
+          ].map(([dot, name, desc]) => (
+            <li key={name} className="flex items-start gap-2.5">
+              <span className={`mt-1.5 size-1.5 shrink-0 rounded-full ${dot}`} />
+              <span>
+                <span className="font-medium text-foreground/80">{name}</span>
+                {": "}
+                {desc}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </details>
 
       {filtered.length === 0 ? (
         <p className="rounded-2xl border border-dashed border-border p-8 text-center text-sm text-foreground/50">

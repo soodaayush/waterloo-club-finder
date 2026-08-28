@@ -1,5 +1,5 @@
 import type { Cycle } from "@/data/schema";
-import { daysUntil } from "@/lib/date";
+import { daysUntil, formatDate } from "@/lib/date";
 import { effectiveStatus } from "@/lib/orgUtils";
 
 const STYLES: Record<Cycle["status"], string> = {
@@ -35,8 +35,26 @@ export function StatusBadge({ cycle }: { cycle: Cycle }) {
     label = cycle.applyUrl ? "Apply anytime" : "Open to join";
   }
 
+  let title: string;
+  if (status === "Open") {
+    title = cycle.closesAt
+      ? `Applications are open. They close ${formatDate(cycle.closesAt)}.`
+      : "Applications are open now.";
+  } else if (status === "Upcoming") {
+    title = cycle.opensAt
+      ? `Applications open ${formatDate(cycle.opensAt)}.`
+      : "Applications haven't opened yet.";
+  } else if (status === "Rolling") {
+    title = cycle.applyUrl
+      ? "There's an application form, but no deadline."
+      : "No application. Just show up or join the Discord.";
+  } else {
+    title = "The application window has passed.";
+  }
+
   return (
     <span
+      title={title}
       className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium whitespace-nowrap ${STYLES[status]}`}
     >
       <span
