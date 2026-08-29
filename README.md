@@ -18,6 +18,11 @@ build time and statically generates every page.
 - **CI validates every PR.** [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
   runs `npm run validate-data` and `npm run build` on every pull request, so
   a malformed submission fails checks before it can be merged.
+- **A daily link check.** [`.github/workflows/link-check.yml`](.github/workflows/link-check.yml)
+  runs [`scripts/check-links.ts`](scripts/check-links.ts) against every
+  `website` and `applyUrl`, and keeps one GitHub issue in sync with anything
+  that is broken or that hasn't been re-verified in 90+ days. It never edits
+  data. Run it yourself with `npm run check-links`.
 - **Deploying is just merging.** Once hosted on Vercel with auto-deploy on
   `main`, an approved PR going live is "click merge."
 
@@ -58,7 +63,7 @@ as they're announced is the main way this project stays useful.
 **A cycle tracks general / new-member recruitment only** — the "how do I
 join?" question. Exec / lead / volunteer hiring goes in `notes`, never
 `status`; if it needs its own dates, it gets its own cycle with a distinct
-`term` (e.g. `"Fall 2026 — Exec hiring"`). Full rules in
+`term` (e.g. `"Fall 2026 exec hiring"`). Full rules in
 [`AGENTS.md`](AGENTS.md#club-data-guidelines).
 
 **Status is derived, not hand-maintained.** Once `opensAt` / `closesAt` are

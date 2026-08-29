@@ -1,0 +1,86 @@
+name: Link check
+
+# Runs check-links daily and keeps a single issue in sync with the results:
+# opens it when something breaks, updates it as things change, closes it once
+# everything is healthy again. Never edits data.
+
+on:
+  schedule:
+    - cron: "0 13 * * *" # 13:00 UTC daily (~09:00 America/Toronto)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run check-links
+
+      - if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const LABEL = 'link-check';
+            const MARKER = '<!-- link-check-bot -->';
+            const TITLE = 'Link check: broken or stale team data';
+
+            let report;
+            try {
+              report = fs.readFileSync('link-report.md', 'utf8').trim();
+            } catch {
+              report = 'The link check errored before producing a report. See the workflow run.';
+            }
+            const clean = /No broken links, nothing stale/.test(report);
+
+            const { owner, repo } = context.repo;
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner, repo, state: 'open', labels: LABEL,
+            });
+            const existing = open.find((i) => i.body && i.body.includes(MARKER));
+
+            if (clean) {
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number: existing.number,
+                  body: 'All links healthy and nothing stale as of the latest run. Closing.',
+                });
+                await github.rest.issues.update({
+                  owner, repo, issue_number: existing.number, state: 'closed',
+                });
+              }
+              return;
+            }
+
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const body = [
+              MARKER,
+              '',
+              `Updated automatically by the link-check workflow ([latest run](${runUrl})).`,
+              'Fix the entries below in `data/orgs/`, then re-run the workflow to clear this.',
+              '',
+              report,
+            ].join('\n');
+
+            if (existing) {
+              await github.rest.issues.update({ owner, repo, issue_number: existing.number, body });
+            } else {
+              try {
+                await github.rest.issues.getLabel({ owner, repo, name: LABEL });
+              } catch {
+                await github.rest.issues.createLabel({
+                  owner, repo, name: LABEL, color: 'd73a4a',
+                  description: 'Automated link / staleness report',
+                });
+              }
+              await github.rest.issues.create({ owner, repo, title: TITLE, labels: [LABEL], body });
+            }

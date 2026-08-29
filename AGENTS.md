@@ -25,7 +25,7 @@ That is what a cycle's `status` / `opensAt` / `closesAt` describe.
   hiring opened would mislead the people this site is for.
 - If a team genuinely runs a structured exec-hiring cycle worth surfacing with
   dates, add it as a **separate cycle** with a distinct `term`, e.g.
-  `"Fall 2026 — Exec hiring"`. This is opt-in, not the default.
+  `"Fall 2026 exec hiring"`. This is opt-in, not the default.
 
 `disciplines` is the skill axis students browse and filter by (Mechanical,
 Electrical, Firmware, Software, Civil, Science, Business) — pick the 1–5 a

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# link checker output (scripts/check-links.ts)
+/link-report.md
