@@ -8,9 +8,31 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+# Working on this repo
+
+- Verify before you finish: `npm run validate-data`, `npm run lint`,
+  `npm run build`. Show the output rather than asserting it passed.
+- Data-health checks: `npm run check-links` (fast, HTTP status of every
+  `website` / `applyUrl` plus staleness) and `npm run audit-sites` (slow,
+  renders every site with Chrome to catch hijacked / parked / spam domains
+  like a lapsed team domain turning into a casino page).
+- Don't commit or push unless asked. When asked, branch off `main` first
+  unless told otherwise.
+- Site copy and data `notes`: no em dashes, and no AI-tell hedging
+  ("appears to", "at verification time", "Flagging for review"). Write like a
+  person taking quick notes.
+- Checking whether a team is real and active: their own site is the source of
+  truth, but many are JS apps that a plain fetch can't read. Use
+  `npm run render <url> -- --text` (or `--links`) to get the rendered page.
+  Instagram and Discord block bots, and `uwaterloo.ca/sedra-...` directory
+  pages are often years stale. Cross-check before trusting or removing an
+  entry. Lapsed domains sometimes turn into spam, so read what actually loads.
+- Verifying a UI change: `npm run render http://localhost:3000/<path> -- --screenshot out.png`
+  against a running dev server, then look at the file.
+
 # Club data guidelines
 
-The dataset in `data/orgs/*.json` tracks **general / new-member recruitment** —
+The dataset in `data/orgs/*.json` tracks **general / new-member recruitment**,
 the "how do I join this?" question a student (often a first-year) is asking.
 That is what a cycle's `status` / `opensAt` / `closesAt` describe.
 
@@ -28,7 +50,7 @@ That is what a cycle's `status` / `opensAt` / `closesAt` describe.
   `"Fall 2026 exec hiring"`. This is opt-in, not the default.
 
 `disciplines` is the skill axis students browse and filter by (Mechanical,
-Electrical, Firmware, Software, Civil, Science, Business) — pick the 1–5 a
+Electrical, Firmware, Software, Civil, Science, Business). Pick the 1 to 5 a
 member would actually build with. Domain (robotics, aerospace, cars, fintech)
-goes in `tags`, not here. `disciplines` + `tags` also drive the "Related
+goes in `tags`, not here. `disciplines` plus `tags` also drive the "Related
 teams" list on each page.

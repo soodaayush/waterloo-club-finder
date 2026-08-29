@@ -42,3 +42,6 @@ next-env.d.ts
 
 # link checker output (scripts/check-links.ts)
 /link-report.md
+
+# site audit output (scripts/audit-sites.ts)
+/site-audit.md
