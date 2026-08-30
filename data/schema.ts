@@ -10,8 +10,8 @@ export const SourceEnum = z.enum(["Manual", "Community", "Scraped"]);
 export type Source = z.infer<typeof SourceEnum>;
 
 // The kind of work a member actually does, as a skill axis a student browses
-// by ("I'm good at embedded", "I want to touch mechanical"). Domain — robotics,
-// aerospace, cars — lives in `tags`, not here.
+// by ("I'm good at embedded", "I want to touch mechanical"). Domain (robotics,
+// aerospace, cars) lives in `tags`, not here.
 export const DisciplineEnum = z.enum([
   "Mechanical",
   "Electrical",
@@ -25,7 +25,7 @@ export type Discipline = z.infer<typeof DisciplineEnum>;
 
 /**
  * An `https://` URL. Rejects `http:`, `javascript:`, `data:`, and anything
- * else — every URL in this dataset is rendered as a clickable link or an
+ * else. Every URL in this dataset is rendered as a clickable link or an
  * "Apply now" button, so a bad scheme here is a way to point users somewhere
  * hostile. Reviewers still have to check *where* a link goes; this only
  * guarantees it's a plain web link.
@@ -51,7 +51,7 @@ function hostUrl(...hosts: string[]) {
 
 export const CycleSchema = z.object({
   term: z.string().min(1),
-  // Reflects GENERAL / new-member recruitment only — the "how do I join?"
+  // Reflects GENERAL / new-member recruitment only, the "how do I join?"
   // question. Exec/lead/volunteer hiring goes in `notes`, never `status`
   // (or, if it needs dates, its own cycle with a distinct `term`).
   // See "Club data guidelines" in AGENTS.md.

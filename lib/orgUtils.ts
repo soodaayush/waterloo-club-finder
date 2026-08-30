@@ -18,7 +18,7 @@ export function getLatestCycle(org: Org) {
 }
 
 /**
- * Tags too broad to signal "a student into X would also like Y" — they either
+ * Tags too broad to signal "a student into X would also like Y". They either
  * mirror a discipline or apply to a third of the list. Ignored when matching
  * related orgs (still shown/searchable everywhere else).
  */

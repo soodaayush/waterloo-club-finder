@@ -56,11 +56,11 @@ Each file in `data/orgs/<slug>.json` looks like:
 ```
 
 The dataset was populated from public sources, but **deadlines are
-intentionally left unverified** rather than guessed — a wrong deadline is
+intentionally left unverified** rather than guessed, since a wrong deadline is
 worse than no deadline. Filling these in as they're announced is the main way
 this project stays useful.
 
-**A cycle tracks general / new-member recruitment only** — the "how do I
+**A cycle tracks general / new-member recruitment only**, the "how do I
 join?" question. Exec / lead / volunteer hiring goes in `notes`, never
 `status`; if it needs its own dates, it gets its own cycle with a distinct
 `term` (e.g. `"Fall 2026 exec hiring"`). Full rules in
@@ -97,36 +97,6 @@ npm run check-links     # fast: HTTP status of every website/applyUrl, flags sta
 npm run audit-sites      # slow: renders every site with Chrome, flags hijacked/parked/spam domains
 npm run render <url>     # render a JS-heavy page with headless Chrome, e.g. -- --text or --screenshot out.png
 ```
-
-## Deploying
-
-1. Push this repo to GitHub.
-2. `lib/github.ts` hard-codes the repo as `soodaayush/waterloo-club-finder`
-   for the "Edit on GitHub" / "Add a new club" links. If the repo moves, set
-   `NEXT_PUBLIC_GITHUB_REPO` (Vercel project settings or `.env.local`) to the
-   new `owner/repo` instead of editing the file.
-3. Import the repo into [Vercel](https://vercel.com/new) and deploy — no
-   database or other services required. Enable auto-deploy on `main` so
-   merged PRs go live automatically.
-
-## Maintainer setup (do this before sharing the site widely)
-
-Contributions are unrestricted pull requests, so the merge step is the only
-gate. The schema check ([`data/schema.ts`](data/schema.ts)) enforces that
-every URL is a plain `https://` link and that social links point at the
-expected hosts, but it **cannot** tell a real application form from a hostile
-look-alike. Lock down `main` so nothing lands without you looking:
-
-On GitHub → **Settings → Branches → Add branch ruleset** for `main`:
-
-- Require a pull request before merging
-- Require review from Code Owners (uses [`.github/CODEOWNERS`](.github/CODEOWNERS))
-- Require status checks to pass: `validate` (from `ci.yml`)
-- Block force pushes; restrict who can push to `main` to maintainers only
-
-On every data PR, the [`pr-data-review`](.github/workflows/pr-data-review.yml)
-workflow lists the URLs it changes in the check summary — open each one before
-approving.
 
 ## Project structure
 

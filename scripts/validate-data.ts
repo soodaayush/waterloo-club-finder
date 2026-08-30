@@ -8,7 +8,7 @@ function main() {
   const files = fs.readdirSync(ORGS_DIR).filter((f) => f.endsWith(".json"));
 
   if (files.length === 0) {
-    console.error("No org files found in data/orgs — that's not expected.");
+    console.error("No org files found in data/orgs, that's not expected.");
     process.exit(1);
   }
 
@@ -24,7 +24,7 @@ function main() {
       json = JSON.parse(raw);
     } catch (err) {
       hasError = true;
-      console.error(`✗ data/orgs/${file}: invalid JSON — ${(err as Error).message}`);
+      console.error(`✗ data/orgs/${file}: invalid JSON, ${(err as Error).message}`);
       continue;
     }
 

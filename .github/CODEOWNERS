@@ -1,4 +1,4 @@
-# Every change to the club dataset needs a maintainer review — this is where
+# Every change to the club dataset needs a maintainer review. This is where
 # a malicious PR would point an "Apply now" button at a hostile page, and the
 # schema check can't catch that. Requires "Require review from Code Owners"
 # in the branch protection rule for `main`.

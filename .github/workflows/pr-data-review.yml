@@ -4,7 +4,7 @@ name: PR data review
 # adds or changes in the job summary, so a reviewer can eyeball where the
 # links actually go before merging. The schema check guarantees they're
 # https:// web links; it can't tell a real application form from a hostile
-# look-alike — a human has to.
+# look-alike, so a human has to.
 
 on:
   pull_request:

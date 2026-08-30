@@ -1,7 +1,7 @@
 // All the dates in this app are plain calendar dates ("2026-09-01") with no
 // time or zone. "Has the deadline passed?" has to be answered from the
 // perspective of Waterloo, not whatever timezone the server happens to run in
-// (UTC, on Vercel) — otherwise a deadline flips to Closed the previous
+// (UTC, on Vercel), otherwise a deadline flips to Closed the previous
 // evening for everyone actually in Ontario.
 const TIMEZONE = "America/Toronto";
 

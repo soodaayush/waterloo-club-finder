@@ -22,7 +22,7 @@ jobs:
           HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
         run: |
           if [ -z "$HOOK_URL" ]; then
-            echo "VERCEL_DEPLOY_HOOK_URL not set — skipping. See this workflow's header for setup."
+            echo "VERCEL_DEPLOY_HOOK_URL not set, skipping. See this workflow's header for setup."
             exit 0
           fi
           curl -fsS -X POST "$HOOK_URL"
