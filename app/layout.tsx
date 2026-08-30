@@ -109,6 +109,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </span>
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
