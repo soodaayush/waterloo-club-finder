@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useId, useMemo, useSyncExternalStore } from "react";
 import type { Category, Discipline, Org, Status } from "@/data/schema";
 import { OrgCard } from "@/components/OrgCard";
 import {
@@ -14,6 +14,64 @@ import {
 
 const CATEGORY_ORDER: Category[] = ["DesignTeam", "Club", "CaseComp", "Other"];
 const STATUSES: Status[] = ["Open", "Upcoming", "Rolling", "Closed"];
+
+const FILTERS_STORAGE_KEY = "clubFinderFilters";
+
+type StoredFilters = {
+  query: string;
+  discipline: Discipline | null;
+  category: Category | null;
+  status: Status | null;
+  showClosed: boolean;
+};
+
+const DEFAULT_FILTERS: StoredFilters = {
+  query: "",
+  discipline: null,
+  category: null,
+  status: null,
+  showClosed: false,
+};
+
+// Filters live in a module-level store backed by sessionStorage, read via
+// useSyncExternalStore, so they survive navigating to a club page and back
+// (which unmounts and remounts this component) without an effect-driven
+// setState, and without touching sessionStorage during server rendering.
+let cachedFilters: StoredFilters | null = null;
+const listeners = new Set<() => void>();
+
+function getSnapshot(): StoredFilters {
+  if (cachedFilters) return cachedFilters;
+
+  let filters: StoredFilters;
+  try {
+    const raw = sessionStorage.getItem(FILTERS_STORAGE_KEY);
+    filters = raw ? { ...DEFAULT_FILTERS, ...JSON.parse(raw) } : DEFAULT_FILTERS;
+  } catch {
+    filters = DEFAULT_FILTERS;
+  }
+  cachedFilters = filters;
+  return filters;
+}
+
+function getServerSnapshot(): StoredFilters {
+  return DEFAULT_FILTERS;
+}
+
+function subscribe(callback: () => void): () => void {
+  listeners.add(callback);
+  return () => listeners.delete(callback);
+}
+
+function setFilters(patch: Partial<StoredFilters>) {
+  cachedFilters = { ...getSnapshot(), ...patch };
+  try {
+    sessionStorage.setItem(FILTERS_STORAGE_KEY, JSON.stringify(cachedFilters));
+  } catch {
+    // sessionStorage unavailable (e.g. private browsing) - ignore
+  }
+  for (const listener of listeners) listener();
+}
 
 function Chip<T extends string>({
   value,
@@ -47,11 +105,8 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
   const categories = CATEGORY_ORDER.filter((c) =>
     orgs.some((o) => o.category === c)
   );
-  const [query, setQuery] = useState("");
-  const [discipline, setDiscipline] = useState<Discipline | null>(null);
-  const [category, setCategory] = useState<Category | null>(null);
-  const [status, setStatus] = useState<Status | null>(null);
-  const [showClosed, setShowClosed] = useState(false);
+  const { query, discipline, category, status, showClosed } =
+    useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const { filtered, hiddenClosed } = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -83,10 +138,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
   const hasActiveFilters = Boolean(query || discipline || category || status);
 
   function clearFilters() {
-    setQuery("");
-    setDiscipline(null);
-    setCategory(null);
-    setStatus(null);
+    setFilters({ query: "", discipline: null, category: null, status: null });
   }
 
   return (
@@ -116,7 +168,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
               type="search"
               placeholder="Search clubs and design teams…"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => setFilters({ query: e.target.value })}
               className="w-full rounded-xl border border-border bg-background py-2.5 pl-10 pr-4 text-sm outline-none focus-visible:border-accent"
             />
           </div>
@@ -133,7 +185,9 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
                 value={d}
                 label={d}
                 active={discipline === d}
-                onClick={(v) => setDiscipline(discipline === v ? null : v)}
+                onClick={(v) =>
+                  setFilters({ discipline: discipline === v ? null : v })
+                }
               />
             ))}
           </div>
@@ -150,7 +204,9 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
                 value={c}
                 label={CATEGORY_LABEL[c]}
                 active={category === c}
-                onClick={(v) => setCategory(category === v ? null : v)}
+                onClick={(v) =>
+                  setFilters({ category: category === v ? null : v })
+                }
               />
             ))}
           </div>
@@ -167,7 +223,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
                 value={s}
                 label={STATUS_LABEL[s]}
                 active={status === s}
-                onClick={(v) => setStatus(status === v ? null : v)}
+                onClick={(v) => setFilters({ status: status === v ? null : v })}
               />
             ))}
           </div>
@@ -184,7 +240,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
               <input
                 type="checkbox"
                 checked={showClosed}
-                onChange={(e) => setShowClosed(e.target.checked)}
+                onChange={(e) => setFilters({ showClosed: e.target.checked })}
                 className="accent-accent"
               />
               Show closed{hiddenClosed > 0 && ` (${hiddenClosed})`}

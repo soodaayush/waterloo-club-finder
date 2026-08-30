@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Open",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": "https://uwevolution.com/survey.html?surveyId=252",
-      "notes": "The site has an active 'APPLY NOW' link with no stated deadline.",
-      "lastVerified": "2026-08-27",
+      "notes": "The site's 'APPLY NOW' link goes to this survey, still live with no stated deadline.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

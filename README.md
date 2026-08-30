@@ -55,10 +55,10 @@ Each file in `data/orgs/<slug>.json` looks like:
 }
 ```
 
-The seed data (17 real Waterloo clubs/design teams) was populated from
-public sources, but **deadlines are intentionally left unverified** rather
-than guessed — a wrong deadline is worse than no deadline. Filling these in
-as they're announced is the main way this project stays useful.
+The dataset was populated from public sources, but **deadlines are
+intentionally left unverified** rather than guessed — a wrong deadline is
+worse than no deadline. Filling these in as they're announced is the main way
+this project stays useful.
 
 **A cycle tracks general / new-member recruitment only** — the "how do I
 join?" question. Exec / lead / volunteer hiring goes in `notes`, never
@@ -87,6 +87,15 @@ npm install
 npm run validate-data   # checks every file in data/orgs against the schema
 npm run dev             # http://localhost:3000
 npm run build            # production build (also run in CI)
+npm run lint             # eslint
+```
+
+Data-health tools, useful while reviewing or updating `data/orgs/`:
+
+```bash
+npm run check-links     # fast: HTTP status of every website/applyUrl, flags stale lastVerified
+npm run audit-sites      # slow: renders every site with Chrome, flags hijacked/parked/spam domains
+npm run render <url>     # render a JS-heavy page with headless Chrome, e.g. -- --text or --screenshot out.png
 ```
 
 ## Deploying
@@ -131,16 +140,25 @@ data/
   schema.ts              zod schema shared by the app and the validator
 lib/
   getOrgs.ts             Server-only: reads + validates data/orgs
-  orgUtils.ts            Client-safe helpers (sorting, latest cycle)
+  orgUtils.ts            Client-safe helpers (status, sorting, latest cycle)
   github.ts              Builds "Edit on GitHub" / "Add a new club" links
-  date.ts                Date formatting helpers
+  date.ts                Date formatting + staleness helpers
+  site.ts                Site name/URL constants used in metadata
 components/
   OrgBrowser.tsx         Search/filter UI + results grid (client component)
-  OrgCard.tsx, StatusBadge.tsx
+  OrgCard.tsx, StatusBadge.tsx, LinkIcon.tsx
 scripts/
   validate-data.ts       Standalone schema check, run locally and in CI
+  check-links.ts         Fast: HTTP status + staleness of every website/applyUrl
+  audit-sites.ts         Slow: renders every site with Chrome, flags hijacked/parked domains
+  render.ts              Render one JS-heavy page with headless Chrome (text/links/screenshot)
+  lib/chrome.ts          Shared headless-Chrome helpers for the two scripts above
 .github/
-  workflows/ci.yml        Validates data + builds on every PR
+  workflows/ci.yml            Validates data + builds on every PR
+  workflows/link-check.yml    Runs check-links daily, files/updates a GitHub issue
+  workflows/refresh.yml       Nightly redeploy so date-derived statuses stay current
+  workflows/pr-data-review.yml  Lists changed URLs on data PRs for reviewer eyeballing
+  CODEOWNERS
   PULL_REQUEST_TEMPLATE.md
 ```
 

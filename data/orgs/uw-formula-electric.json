@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Open",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfrimKM8-HdZzHlybgqguK5zH5O5mywSFVy5nkN5ooHH5v2XQ/viewform",
-      "notes": "The recruitment page links an active application form and invites people to General Meetings announced on their Slack. No deadline stated.",
-      "lastVerified": "2026-08-27",
+      "notes": "The recruitment form is still live, no stated deadline. Also invites people to General Meetings announced on their Slack.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

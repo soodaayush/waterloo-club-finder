@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllOrgs } from "@/lib/getOrgs";
-import { effectiveStatus, getLatestCycle } from "@/lib/orgUtils";
+import { openWithDeadlineCount } from "@/lib/orgUtils";
 import { OrgBrowser } from "@/components/OrgBrowser";
 
 // Re-generate periodically so date-derived statuses and "Nd left" countdowns
@@ -9,9 +9,7 @@ export const revalidate = 3600;
 
 export default function HomePage() {
   const orgs = getAllOrgs();
-  const openCount = orgs.filter(
-    (org) => effectiveStatus(getLatestCycle(org)) === "Open"
-  ).length;
+  const openCount = openWithDeadlineCount(orgs);
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
@@ -39,7 +37,7 @@ export default function HomePage() {
             <dd className="font-semibold">{orgs.length} orgs</dd>
           </div>
           <div className="flex items-baseline gap-1.5">
-            <dt className="text-foreground/50">Open right now</dt>
+            <dt className="text-foreground/50">Open with a deadline</dt>
             <dd className="font-semibold text-green-600 dark:text-green-400">
               {openCount}
             </dd>

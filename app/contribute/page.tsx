@@ -103,20 +103,6 @@ export default function ContributePage() {
           <span className="sr-only"> (opens in new tab)</span>
         </a>
       </section>
-
-      <section className="flex flex-col gap-2 text-sm text-foreground/60">
-        <h2 className="font-medium text-foreground">
-          Why GitHub instead of a submission form?
-        </h2>
-        <p>
-          Every change is a diff with an author and a timestamp, review
-          happens as a normal pull request, and there&apos;s no separate
-          login system or database to maintain. The trade-off: it requires a
-          free GitHub account. If that turns out to be a real barrier for
-          people submitting updates, a simple form that files a GitHub issue
-          on someone&apos;s behalf is a reasonable future addition.
-        </p>
-      </section>
     </main>
   );
 }

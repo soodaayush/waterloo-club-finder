@@ -9,16 +9,22 @@
     "discord": "https://discord.gg/62NsX8pBwJ"
   },
   "disciplines": ["Software", "Firmware"],
-  "tags": ["robotics", "autonomous-vehicles", "software", "computer-vision", "machine-learning"],
+  "tags": [
+    "robotics",
+    "autonomous-vehicles",
+    "software",
+    "computer-vision",
+    "machine-learning"
+  ],
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Open",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
-      "applyUrl": "https://www.watonomous.ca/careers",
-      "notes": "The team's careers page currently lists open roles across WATcloud, Leadership, Robotics Engineering, and Business Operations, each with its own application link. No overall deadline is stated.",
-      "lastVerified": "2026-08-27",
+      "applyUrl": "https://www.watonomous.ca/careers/",
+      "notes": "General membership is rolling admission across the Autonomous Software, Autonomous Platform, and Business Operations divisions, no deadline. WATcloud runs its own onboarding, either by picking up a listed starter project or filling out its onboarding form at cloud.watonomous.ca. The careers page also lists specific exec and lead hiring (Director, Project Manager, Squad Lead, Team Captain, Graphic Designer, Sales & Outreach Coordinator, Website Developer) plus an Expedited Admission track, all separate from general recruitment.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

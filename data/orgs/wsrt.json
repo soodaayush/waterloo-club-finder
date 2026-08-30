@@ -4,7 +4,7 @@
   "category": "DesignTeam",
   "description": "Empowers undergraduate students to explore space research through stratospheric balloon payloads and microgravity electronics experiments.",
   "links": {
-    "website": null,
+    "website": "https://uwspaceresearch26.vercel.app/",
     "instagram": "https://www.instagram.com/uwspaceresearch",
     "discord": null
   },
@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Rolling",
+      "status": "Upcoming",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Instagram (@uwspaceresearch) is the reliable channel to reach the team. Runs stratospheric balloon payloads and microgravity experiments. Their site currently fails to load over HTTPS.",
-      "lastVerified": "2026-08-29",
+      "notes": "The site's join form and the application forms posted on Instagram (@uwspaceresearch) are still from the 2025-26 cycle, nothing posted yet for the upcoming year. Check Instagram for the new form once it's live. Runs stratospheric balloon payloads and microgravity experiments.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

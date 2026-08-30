@@ -85,6 +85,12 @@ export function effectiveStatus(cycle: Cycle): Status {
   return cycle.status;
 }
 
+/** Orgs whose current cycle has a real, time-boxed application window open right now. */
+export function openWithDeadlineCount(orgs: Org[]): number {
+  return orgs.filter((org) => effectiveStatus(getLatestCycle(org)) === "Open")
+    .length;
+}
+
 /** Human phrasing for a status, used in page titles and share cards. */
 export const STATUS_PHRASE: Record<Status, string> = {
   Open: "Applications open",

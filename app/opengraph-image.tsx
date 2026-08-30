@@ -1,20 +1,18 @@
 import { ImageResponse } from "next/og";
 import { getAllOrgs } from "@/lib/getOrgs";
-import { effectiveStatus, getLatestCycle } from "@/lib/orgUtils";
+import { openWithDeadlineCount } from "@/lib/orgUtils";
 import { SITE_NAME } from "@/lib/site";
 
 export const alt = SITE_NAME;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// The card shows a live "N open right now" count.
+// The card shows a live "N open with a deadline" count.
 export const revalidate = 3600;
 
 export default async function Image() {
   const orgs = getAllOrgs();
-  const openCount = orgs.filter(
-    (o) => effectiveStatus(getLatestCycle(o)) === "Open"
-  ).length;
+  const openCount = openWithDeadlineCount(orgs);
 
   return new ImageResponse(
     (
@@ -69,7 +67,7 @@ export default async function Image() {
           </div>
           <div style={{ display: "flex", fontSize: "30px", color: "#a1a1a1" }}>
             Application status for {orgs.length} UWaterloo clubs and design teams
-            {openCount > 0 ? `, ${openCount} open right now` : ""}
+            {openCount > 0 ? `, ${openCount} open with a deadline` : ""}
           </div>
         </div>
       </div>

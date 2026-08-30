@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Open",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": "https://forms.gle/rFpXnnUndd9f6WeY6",
-      "notes": "The site has an active 'JOIN NOW' link to this Google Form, with no stated deadline.",
-      "lastVerified": "2026-08-27",
+      "notes": "The site's 'JOIN NOW' link goes to this Google Form, still live with no stated deadline.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

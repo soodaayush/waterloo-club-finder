@@ -4,7 +4,7 @@
   "category": "DesignTeam",
   "description": "Creates solutions for problems in the biomedical field through four specialized sub-teams.",
   "links": {
-    "website": "https://uwaterloo.ca/sedra-student-design-centre/catalogs/student-design-teams/uw-biomechatronics-design-team-biotron",
+    "website": "https://uwbiotron.netlify.app/",
     "instagram": null,
     "discord": "https://discord.gg/YBNN5ThRAA"
   },
@@ -17,8 +17,8 @@
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Join the Discord or email biotron@uwaterloo.ca. Four subteams (EMG Fabric, e-NABLE, Spine Bio Sticker, Tetra). No formal application.",
-      "lastVerified": "2026-08-29",
+      "notes": "Join the Discord, then pick a sub-team in the #roles channel (EMG Fabric, e-NABLE, or EXO, and you can join more than one). Attend team meetings to learn more and start on projects. Questions go to the Leads on Discord or by email. No formal application.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

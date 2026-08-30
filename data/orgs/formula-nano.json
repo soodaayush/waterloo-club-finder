@@ -16,9 +16,9 @@
       "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
-      "applyUrl": null,
-      "notes": "The FAQ says new members can join anytime; email uwformulanano@gmail.com. The /jobs page still lists a stale 2025 deadline, so ignore that.",
-      "lastVerified": "2026-08-29",
+      "applyUrl": "https://uwformulanano.ca/jobs/",
+      "notes": "No separate general-member tier: everyone joins through a role-specific application on the jobs page (Chemistry, Instrumentation, Computation, or Business), each with a short technical screening form plus a casual interview. Every posting shows the same Apply by 9/26/2025 deadline, over a year stale, but the FAQ says R&D is continuous and new members are welcome anytime, so treat that date as leftover template text, not a real cutoff. Leadership isn't separately advertised, the site's team page just lists the current leads.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

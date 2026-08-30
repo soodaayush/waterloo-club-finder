@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Open",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": "https://www.uworbital.com/join-us",
-      "notes": "The join page lists onboarding as: join the Discord, then read through the onboarding docs. There's no formal application or deadline, and onboarding is open now.",
-      "lastVerified": "2026-08-27",
+      "notes": "No formal application: join the Discord, then read through the onboarding docs linked from the join page. No deadline.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

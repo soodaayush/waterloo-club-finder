@@ -16,9 +16,9 @@
       "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
-      "applyUrl": null,
-      "notes": "General membership is open. Join the Discord for workshops, project teams, and Leetcode sessions. Executive-team applications for Fall 2026 are open separately at uwdatascience.ca/apply.",
-      "lastVerified": "2026-08-28",
+      "applyUrl": "https://www.uwdatascience.ca/register",
+      "notes": "General membership signup is a short account-creation form on the site, no deadline, plus a $4 membership fee per the site FAQ. Join the Discord too for workshops, project teams, and Leetcode sessions.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

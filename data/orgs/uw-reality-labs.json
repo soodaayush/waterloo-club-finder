@@ -6,7 +6,7 @@
   "links": {
     "website": "https://uwrealitylabs.com/",
     "instagram": "https://www.instagram.com/uwrealitylabs/",
-    "discord": null
+    "discord": "https://discord.gg/vs9XdfuMJu"
   },
   "disciplines": ["Software"],
   "tags": ["ar-vr", "software"],
@@ -17,8 +17,8 @@
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Join the Discord (linked from uwrealitylabs.com) to get involved. Builds custom VR/AR hardware and software. No formal application.",
-      "lastVerified": "2026-08-29",
+      "notes": "Join the Discord to get involved. Onboarding for sub-teams is posted there and runs year round. Builds custom VR/AR hardware and software. No formal application.",
+      "lastVerified": "2026-08-30",
       "source": "Manual"
     }
   ]

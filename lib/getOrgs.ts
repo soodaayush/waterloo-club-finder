@@ -7,7 +7,7 @@ const ORGS_DIR = path.join(process.cwd(), "data", "orgs");
 let cache: Org[] | null = null;
 
 export function getAllOrgs(): Org[] {
-  if (cache) return cache;
+  if (cache && process.env.NODE_ENV === "production") return cache;
 
   const files = fs.readdirSync(ORGS_DIR).filter((f) => f.endsWith(".json"));
 
