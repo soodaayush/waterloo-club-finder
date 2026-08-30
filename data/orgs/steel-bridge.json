@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The team's primary domain (uwaterloosteelbridge.com) failed to resolve during verification. Contact UWSteelBridgeDesign@gmail.com to ask about joining.",
-      "lastVerified": "2026-08-27",
+      "notes": "Email UWSteelBridgeDesign@gmail.com to join. Perennial civil team; competes in the Canadian National Steel Bridge Competition.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

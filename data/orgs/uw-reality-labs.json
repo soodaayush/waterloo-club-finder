@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Builds custom VR/AR hardware and software (custom headsets, hand-tracking, SLAM). The site, GitHub (github.com/uwrealitylabs), Discord, and Instagram are the main channels. No open recruitment call found at this check.",
-      "lastVerified": "2026-08-28",
+      "notes": "Join the Discord (linked from uwrealitylabs.com) to get involved. Builds custom VR/AR hardware and software. No formal application.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

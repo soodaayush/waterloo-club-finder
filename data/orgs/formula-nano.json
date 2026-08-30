@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The /jobs page lists open roles but its deadline ('Apply by 9/26/2025') is over a year old, so the page looks out of date. The FAQ says new members can join anytime; email uwformulanano@gmail.com to be sure.",
-      "lastVerified": "2026-08-27",
+      "notes": "The FAQ says new members can join anytime; email uwformulanano@gmail.com. The /jobs page still lists a stale 2025 deadline, so ignore that.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

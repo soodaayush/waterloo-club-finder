@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The site is minimal and had no recruitment information at verification time. Contact uwrobosoccer@gmail.com.",
-      "lastVerified": "2026-08-27",
+      "notes": "Email uwrobosoccer@gmail.com to join. Founded 2024; builds humanoid robots for RoboCup (competing in the 2026 event).",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

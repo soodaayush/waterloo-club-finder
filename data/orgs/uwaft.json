@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Both uwaft.ca and www.uwaft.ca failed to resolve during verification (domain appears defunct/lapsed). Check Sedra Student Design Centre for current contact info.",
-      "lastVerified": "2026-08-27",
+      "notes": "Reach the team via the Sedra Student Design Centre for current contact info; their own domain is down. Selected for the EcoCAR EV Innovation Challenge (2026 to 2030), 50+ members.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Active team running stratospheric balloon payloads and microgravity electronics experiments. Their site (uwspaceresearch.ca) currently fails to load over HTTPS, so Instagram (@uwspaceresearch) is the reliable channel. No open recruitment call confirmed.",
-      "lastVerified": "2026-08-28",
+      "notes": "Instagram (@uwspaceresearch) is the reliable channel to reach the team. Runs stratospheric balloon payloads and microgravity experiments. Their site currently fails to load over HTTPS.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The site has a 'Join Us' section, but it only points to an email (uwnrg.recruiting@gmail.com). No application form or deadline.",
-      "lastVerified": "2026-08-27",
+      "notes": "Email uwnrg.recruiting@gmail.com to join. Undergraduate nanorobotics team; no application form or deadline.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

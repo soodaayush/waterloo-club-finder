@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "One of Waterloo's oldest robotics teams, building an autonomous rover for the University Rover Challenge. Their standalone site (uwaterloorobotics.com) is down; reach them via github.com/uwrobotics, Instagram, or uwaterloorobotics@gmail.com.",
-      "lastVerified": "2026-08-28",
+      "notes": "Reach the team via github.com/uwrobotics, Instagram, or uwaterloorobotics@gmail.com. One of Waterloo's oldest robotics teams, building an autonomous rover for the University Rover Challenge. Their standalone site is down.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

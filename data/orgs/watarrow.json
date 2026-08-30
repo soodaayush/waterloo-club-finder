@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The site has a 'Join Us' nav link but its content wasn't accessible during verification; no confirmed current recruitment. Contact waterlooarrow@gmail.com.",
-      "lastVerified": "2026-08-27",
+      "notes": "Email waterlooarrow@gmail.com to join. Designs small aircraft for the SAE Aero Design competition.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

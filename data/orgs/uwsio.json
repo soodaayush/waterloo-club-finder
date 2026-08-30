@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "A recognized Sedra design team (UW Silica Integrated Optics) working on optical data storage with femtosecond lasers. Its own site is offline; reach it via the Sedra page or uwsio.team@gmail.com. No recruitment info found.",
-      "lastVerified": "2026-08-28",
+      "notes": "Reach the team via the Sedra page or uwsio.team@gmail.com. Recognized Sedra design team (UW Silica Integrated Optics) working on optical data storage. No formal application.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

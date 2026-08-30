@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Upcoming",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "As of this check the join page still said 'Applications have closed for 2025' and had not been updated for the current cycle. Follow their socials for the next call.",
-      "lastVerified": "2026-08-27",
+      "notes": "Runs a recruitment cycle each year with a timeline on its join page; the page still showed 'Applications have closed for 2025' at this check and was not updated for the current cycle. Undergraduate team, competing since 2005.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The site only has a general 'join the mission' contact form for members and sponsors. No application process or deadline.",
-      "lastVerified": "2026-08-27",
+      "notes": "Use the 'join the mission' form on the site to get in touch. No formal application; currently building an autonomous drowning-search robot.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

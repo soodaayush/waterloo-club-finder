@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The site's FAQ has a 'How do I get involved or contribute?' entry, but its answer wasn't accessible during verification and no application link was found. Try their Discord (linked from the site) or email waterloohackerfab@gmail.com directly.",
-      "lastVerified": "2026-08-27",
+      "notes": "Join the Discord to get involved. Open-source semiconductor fab lab building lithography and process tools. No formal application.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

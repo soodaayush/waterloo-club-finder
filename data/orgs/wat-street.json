@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Upcoming",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The site's /apply page currently 404s and no active recruitment call was found. Check their Instagram (@wat.street) closer to term start for a new cycle announcement.",
-      "lastVerified": "2026-08-27",
+      "notes": "Runs a structured application each term for its quant and dev teams; the /apply page was down at this check. Watch @wat.street for the Fall 2026 cycle.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

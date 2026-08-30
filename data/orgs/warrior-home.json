@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The team's own domain (warriorhome.ca) returned a 404 during verification. No recruitment info found elsewhere.",
-      "lastVerified": "2026-08-27",
+      "notes": "Reach out through the team's channels to join. Award-winning multidisciplinary team building net-zero energy affordable homes. Their own domain is down; the Sedra page is the current reference.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

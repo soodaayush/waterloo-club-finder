@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "No dedicated team website or public application found. Contact aciuwat@uwaterloo.ca to ask about joining.",
-      "lastVerified": "2026-08-27",
+      "notes": "Email aciuwat@uwaterloo.ca to join. No formal application; competes at ACI conventions each year.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

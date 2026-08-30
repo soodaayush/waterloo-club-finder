@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Active team with four subteams (EMG Fabric, e-NABLE, Spine Bio Sticker, Tetra). Their own site is an unfinished template, so use the Discord or biotron@uwaterloo.ca. No confirmed recruitment window.",
-      "lastVerified": "2026-08-28",
+      "notes": "Join the Discord or email biotron@uwaterloo.ca. Four subteams (EMG Fabric, e-NABLE, Spine Bio Sticker, Tetra). No formal application.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

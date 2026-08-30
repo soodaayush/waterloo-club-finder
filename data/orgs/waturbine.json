@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "The site only had a general 'Learn more about Our Mission' link at verification time; no recruitment/application info found.",
-      "lastVerified": "2026-08-27",
+      "notes": "Reach out through the team's channels to join. Designs small wind turbines for the International Small Wind Turbine Contest (competing in 2026).",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]

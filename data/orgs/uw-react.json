@@ -13,11 +13,11 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "Active team building fully autonomous FRC robots and running the annual Robot in 3 Days event. Their old domain (uwreact.ca) has lapsed and now hosts spam; the Sedra page is the current reference. No confirmed recruitment window.",
+      "notes": "Reach out through the team's channels to join. Builds fully autonomous FRC robots and runs the annual Robot in 3 Days event. Their old domain (uwreact.ca) has lapsed; the Sedra page is the current reference.",
       "lastVerified": "2026-08-29",
       "source": "Manual"
     }

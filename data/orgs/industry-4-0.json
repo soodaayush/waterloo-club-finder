@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Closed",
+      "status": "Rolling",
       "opensAt": null,
       "closesAt": null,
       "applyUrl": null,
-      "notes": "No dedicated external website found. Contact industry4team@uwaterloo.ca to ask about joining.",
-      "lastVerified": "2026-08-27",
+      "notes": "Email industry4team@uwaterloo.ca to join. Student-run team that promotes Management Engineering and organizes the I4 Challenge for high schoolers.",
+      "lastVerified": "2026-08-29",
       "source": "Manual"
     }
   ]
