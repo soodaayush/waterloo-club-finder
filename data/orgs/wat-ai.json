@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Upcoming",
+      "status": "Open",
       "opensAt": "2026-09-09",
-      "closesAt": null,
-      "applyUrl": null,
-      "notes": "Core-member applications are expected to open around September 7-9. Check watai.ca for the form once it's live.",
-      "lastVerified": "2026-08-30",
+      "closesAt": "2026-09-18",
+      "applyUrl": "https://forms.gle/zHmmJ2MqZFKZzqmp7",
+      "notes": "Core Member applications are open September 9 to 18, with rolling interviews happening during the window and the form closing September 18 at 11:59 PM EST. You can apply to up to 3 projects. Core Member is an unpaid volunteer role, about 3-5 hours a week, running Fall 2026 through Winter 2027.",
+      "lastVerified": "2026-09-09",
       "source": "Manual"
     }
   ]
