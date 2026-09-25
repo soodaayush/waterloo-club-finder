@@ -4,7 +4,7 @@
   "category": "DesignTeam",
   "description": "Designs and builds small wind turbines for the International Small Wind Turbine Competition.",
   "links": {
-    "website": "https://www.waturbine.ca/",
+    "website": null,
     "instagram": "https://www.instagram.com/uwwaturbine/",
     "discord": "https://discord.gg/QJhDqWywaP"
   },
@@ -13,12 +13,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Rolling",
+      "status": "Closed",
       "opensAt": null,
       "closesAt": null,
-      "applyUrl": "https://form.typeform.com/to/Py0oZEBA",
-      "notes": "The Get Involved page has a member form (Aerodynamics, Mechanical, Structural, Power, and Controls sub-teams), no deadline. Join the Discord for questions. Designs small wind turbines for the International Small Wind Turbine Contest (competing in 2026).",
-      "lastVerified": "2026-08-30",
+      "applyUrl": null,
+      "notes": "The member form (Aerodynamics, Mechanical, Structural, Power, and Controls sub-teams) now says it is closed, and waturbine.ca isn't loading. Ask in the Discord or on Instagram about joining. Designs small wind turbines for the International Small Wind Turbine Contest.",
+      "lastVerified": "2026-09-25",
       "source": "Manual"
     }
   ]

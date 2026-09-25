@@ -6,7 +6,7 @@
   "links": {
     "website": "https://www.watonomous.ca/",
     "instagram": "https://www.instagram.com/watonomous/",
-    "discord": "https://discord.gg/62NsX8pBwJ"
+    "discord": "https://discord.com/invite/hEX5Q4KDYN"
   },
   "disciplines": ["Software", "Firmware"],
   "tags": [
@@ -19,12 +19,12 @@
   "cycles": [
     {
       "term": "Fall 2026",
-      "status": "Rolling",
+      "status": "Closed",
       "opensAt": null,
-      "closesAt": null,
-      "applyUrl": "https://www.watonomous.ca/careers/Rolling_App",
-      "notes": "General membership is rolling admission across the Autonomous Software, Autonomous Platform, and Business Operations divisions, no deadline. Each division runs its own onboarding. WATcloud onboards separately, either by picking up a listed starter project or filling out the form at cloud.watonomous.ca. The careers page also lists specific exec and lead roles plus an Expedited Admission track, all separate from general recruitment. The expedited page still shows the September 2025 window, so there is no open expedited round right now.",
-      "lastVerified": "2026-09-09",
+      "closesAt": "2026-09-18",
+      "applyUrl": null,
+      "notes": "General admission ended September 18 at 11:59 PM EST. The careers page still lists the General Member role, so late applicants can email hello@watonomous.ca. Each division (Autonomous Software, Autonomous Platform, Business Operations) runs its own onboarding. WATcloud onboards separately through cloud.watonomous.ca. For website, sales, or graphic design roles, email the team directly.",
+      "lastVerified": "2026-09-25",
       "source": "Manual"
     }
   ]
