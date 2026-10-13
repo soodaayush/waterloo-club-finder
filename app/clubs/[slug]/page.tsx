@@ -7,6 +7,7 @@ import { StatusBadge } from "@/components/StatusBadge";
 import { LinkIcon, type LinkLabel } from "@/components/LinkIcon";
 import { SaveButton } from "@/components/SaveButton";
 import { CompareToggle } from "@/components/CompareToggle";
+import { MobileApplyBar } from "@/components/MobileApplyBar";
 import { formatDate, isStale } from "@/lib/date";
 import {
   CATEGORY_LABEL,
@@ -256,20 +257,7 @@ export default async function ClubPage({
         </a>
       </section>
 
-      {/* Mobile-only sticky quick action, mirrors the primary CTA above the fold on small screens */}
-      {cycles[0].applyUrl && (
-        <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background/90 p-4 backdrop-blur-md sm:hidden">
-          <a
-            href={cycles[0].applyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-1 rounded-full bg-accent px-4 py-3 text-sm font-medium text-accent-foreground"
-          >
-            Apply now
-            <span className="sr-only"> (opens in new tab)</span>
-          </a>
-        </div>
-      )}
+      {cycles[0].applyUrl && <MobileApplyBar applyUrl={cycles[0].applyUrl} />}
     </main>
   );
 }

@@ -5,7 +5,7 @@ import {
   getLatestCycle,
   openWithDeadlineCount,
 } from "@/lib/orgUtils";
-import { isNewOrg } from "@/lib/newness";
+import { newOrgSlugs } from "@/lib/newness";
 import { OrgBrowser } from "@/components/OrgBrowser";
 import { StatusBadge } from "@/components/StatusBadge";
 
@@ -19,10 +19,10 @@ export default function HomePage() {
   const soon = closingSoon(orgs);
   // Computed server-side (shells out to git) and passed down as plain data -
   // see the comment on OrgCard for why this can't live in the client tree.
-  const newSlugs = orgs.filter((o) => isNewOrg(o.slug)).map((o) => o.slug);
+  const newSlugs = newOrgSlugs(orgs);
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
+    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-4 py-10 pb-28 sm:px-6 sm:py-14">
       <header className="flex flex-col gap-4">
         <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
           Find your club or design team,{" "}
