@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import { getAllOrgs, getOrgBySlug } from "@/lib/getOrgs";
 import { getEditOrgUrl } from "@/lib/github";
@@ -7,6 +8,7 @@ import { StatusBadge } from "@/components/StatusBadge";
 import { LinkIcon, type LinkLabel } from "@/components/LinkIcon";
 import { SaveButton } from "@/components/SaveButton";
 import { CompareToggle } from "@/components/CompareToggle";
+import { ShareButton } from "@/components/ShareButton";
 import { MobileApplyBar } from "@/components/MobileApplyBar";
 import { formatDate, isStale } from "@/lib/date";
 import {
@@ -96,11 +98,16 @@ export default async function ClubPage({
 
       <header className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-3">
-          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            {org.name}
-          </h1>
+          {/* Same name as the card title in components/OrgCard.tsx, so the
+              browser morphs between them on navigation. */}
+          <ViewTransition name={`club-title-${org.slug}`}>
+            <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              {org.name}
+            </h1>
+          </ViewTransition>
           <StatusBadge cycle={cycles[0]} />
           <div className="ml-auto flex items-center gap-1 rounded-full border border-border">
+            <ShareButton title={org.name} />
             <CompareToggle slug={org.slug} name={org.name} />
             <SaveButton slug={org.slug} name={org.name} />
           </div>

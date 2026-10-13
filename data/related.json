@@ -1,0 +1,472 @@
+{
+  "aci-student-design-team": [
+    "steel-bridge",
+    "uwrs",
+    "computer-science-club",
+    "uw-concrete-canoe",
+    "uw-orbital",
+    "uwaterloo-iise",
+    "warrior-home",
+    "uwaft"
+  ],
+  "baja-sae": [
+    "watarrow",
+    "warrior-home",
+    "midnight-sun",
+    "steel-bridge",
+    "uw-formula-electric",
+    "uw-concrete-toboggan",
+    "battery-workforce-challenge",
+    "uw-concrete-canoe"
+  ],
+  "battery-workforce-challenge": [
+    "uw-formula-electric",
+    "uwaft",
+    "uwnrg",
+    "uw-biotron",
+    "uw-blueprint",
+    "uw-react",
+    "uwrt",
+    "uwasic"
+  ],
+  "computer-science-club": [
+    "se-soc",
+    "waterloo-blockchain",
+    "aci-student-design-team",
+    "uw-data-science-club",
+    "waterloo-hacker-fab",
+    "uwaterloo-iise",
+    "steel-bridge",
+    "industry-4-0"
+  ],
+  "electrium-mobility": [
+    "uwaft",
+    "battery-workforce-challenge",
+    "midnight-sun",
+    "uw-react",
+    "igem",
+    "watflow",
+    "industry-4-0",
+    "uw-vex-u-robotics"
+  ],
+  "formula-nano": [
+    "uwnrg",
+    "igem",
+    "uw-biotron",
+    "uw-react",
+    "uw-formula-electric",
+    "waterloo-hacker-fab",
+    "watbots",
+    "uw-vex-u-robotics"
+  ],
+  "igem": [
+    "waterloo-alternative-protein-project",
+    "uw-biotron",
+    "industry-4-0",
+    "uwaterloo-iise",
+    "medtechresolve",
+    "wat-ai",
+    "waterloo-rocketry",
+    "formula-nano"
+  ],
+  "industry-4-0": [
+    "igem",
+    "uwaterloo-iise",
+    "waterloo-alternative-protein-project",
+    "uwaft",
+    "uw-biotron",
+    "waterloo-rocketry",
+    "se-soc",
+    "wat-ai"
+  ],
+  "medtechresolve": [
+    "uw-biotron",
+    "igem",
+    "watolink",
+    "wat-ai",
+    "uwaterloo-iise",
+    "watbots",
+    "watflow",
+    "se-soc"
+  ],
+  "midnight-sun": [
+    "battery-workforce-challenge",
+    "electrium-mobility",
+    "steel-bridge",
+    "warrior-home",
+    "uwrt",
+    "se-soc",
+    "baja-sae",
+    "uwaft"
+  ],
+  "uwrt": [
+    "uwrs",
+    "uw-react",
+    "uw-biotron",
+    "uw-vex-u-robotics",
+    "uwnrg",
+    "uwaft",
+    "watbots",
+    "uw-data-science-club"
+  ],
+  "socratica": [
+    "se-soc",
+    "computer-science-club",
+    "aci-student-design-team",
+    "waterloo-alternative-protein-project",
+    "warrior-home",
+    "waterloo-hacker-fab",
+    "waterloo-blockchain",
+    "igem"
+  ],
+  "se-soc": [
+    "computer-science-club",
+    "uwaterloo-iise",
+    "socratica",
+    "uwasic",
+    "industry-4-0",
+    "uw-blueprint",
+    "uw-data-science-club",
+    "aci-student-design-team"
+  ],
+  "steel-bridge": [
+    "warrior-home",
+    "aci-student-design-team",
+    "uw-concrete-canoe",
+    "uw-blueprint",
+    "uwrt",
+    "wat-street",
+    "watbots",
+    "computer-science-club"
+  ],
+  "uw-biotron": [
+    "uwnrg",
+    "uwrt",
+    "uw-react",
+    "igem",
+    "uwasic",
+    "uw-formula-electric",
+    "uw-vex-u-robotics",
+    "uwaft"
+  ],
+  "uw-blueprint": [
+    "uw-reality-labs",
+    "uwaft",
+    "uwnrg",
+    "uwhpc",
+    "uw-data-science-club",
+    "uw-react",
+    "uw-biotron",
+    "uw-vex-u-robotics"
+  ],
+  "uw-concrete-canoe": [
+    "uw-concrete-toboggan",
+    "uwaft",
+    "aci-student-design-team",
+    "uw-formula-electric",
+    "steel-bridge",
+    "uwrt",
+    "uw-vex-u-robotics",
+    "uw-react"
+  ],
+  "uw-concrete-toboggan": [
+    "uw-concrete-canoe",
+    "uwrs",
+    "uwaft",
+    "uw-formula-electric",
+    "uw-react",
+    "uwrt",
+    "battery-workforce-challenge",
+    "uw-vex-u-robotics"
+  ],
+  "uw-data-science-club": [
+    "uwhpc",
+    "uwaft",
+    "uw-blueprint",
+    "uwnrg",
+    "uwrt",
+    "computer-science-club",
+    "uw-reality-labs",
+    "uwasic"
+  ],
+  "uw-formula-electric": [
+    "battery-workforce-challenge",
+    "uwaft",
+    "uwnrg",
+    "uw-biotron",
+    "uw-react",
+    "uwhpc",
+    "uwasic",
+    "uw-vex-u-robotics"
+  ],
+  "uwhpc": [
+    "uw-data-science-club",
+    "uw-blueprint",
+    "uw-formula-electric",
+    "uw-reality-labs",
+    "uwasic",
+    "uwsio",
+    "uwaft",
+    "battery-workforce-challenge"
+  ],
+  "uwnrg": [
+    "uw-biotron",
+    "uw-react",
+    "uw-formula-electric",
+    "battery-workforce-challenge",
+    "uwrt",
+    "uw-blueprint",
+    "uwsio",
+    "uwasic"
+  ],
+  "uw-orbital": [
+    "wsrt",
+    "uwaft",
+    "warg",
+    "uw-reality-labs",
+    "uw-biotron",
+    "uw-vex-u-robotics",
+    "waterloo-rocketry",
+    "uw-blueprint"
+  ],
+  "uw-react": [
+    "uw-vex-u-robotics",
+    "uwrt",
+    "uw-biotron",
+    "uwnrg",
+    "uwrs",
+    "uwaft",
+    "watbots",
+    "uw-formula-electric"
+  ],
+  "uw-reality-labs": [
+    "uw-blueprint",
+    "uwasic",
+    "uw-vex-u-robotics",
+    "uw-orbital",
+    "uw-react",
+    "uwaft",
+    "uwhpc",
+    "uw-data-science-club"
+  ],
+  "uw-vex-u-robotics": [
+    "uw-react",
+    "uwrt",
+    "uwrs",
+    "uw-biotron",
+    "watbots",
+    "uw-reality-labs",
+    "uw-orbital",
+    "uwnrg"
+  ],
+  "uwaft": [
+    "uw-formula-electric",
+    "battery-workforce-challenge",
+    "uw-blueprint",
+    "uw-react",
+    "uwrt",
+    "uw-orbital",
+    "uw-data-science-club",
+    "uwnrg"
+  ],
+  "uwasic": [
+    "uw-biotron",
+    "uw-reality-labs",
+    "uwnrg",
+    "uwaft",
+    "uw-blueprint",
+    "uwhpc",
+    "uw-formula-electric",
+    "uw-data-science-club"
+  ],
+  "uwaterloo-iise": [
+    "se-soc",
+    "igem",
+    "industry-4-0",
+    "uwaft",
+    "uw-data-science-club",
+    "wat-ai",
+    "uwrs",
+    "aci-student-design-team"
+  ],
+  "uwsio": [
+    "uwnrg",
+    "uw-formula-electric",
+    "uwhpc",
+    "uwasic",
+    "uw-data-science-club",
+    "uw-blueprint",
+    "uw-reality-labs",
+    "uw-biotron"
+  ],
+  "warrior-home": [
+    "steel-bridge",
+    "watbots",
+    "uw-biotron",
+    "aci-student-design-team",
+    "warg",
+    "uwrt",
+    "uw-reality-labs",
+    "uwrs"
+  ],
+  "wat-street": [
+    "wat-ai",
+    "watonomous",
+    "waterloo-blockchain",
+    "steel-bridge",
+    "watbots",
+    "uw-blueprint",
+    "uwaft",
+    "warrior-home"
+  ],
+  "wat-ai": [
+    "watonomous",
+    "watbots",
+    "watolink",
+    "wat-street",
+    "uwaterloo-iise",
+    "igem",
+    "uw-biotron",
+    "uwrt"
+  ],
+  "watarrow": [
+    "waturbine",
+    "baja-sae",
+    "watbots",
+    "uw-orbital",
+    "uw-biotron",
+    "waterloo-rocketry",
+    "uw-vex-u-robotics",
+    "uw-react"
+  ],
+  "watbots": [
+    "watonomous",
+    "wat-ai",
+    "warg",
+    "uwrs",
+    "uw-react",
+    "uw-vex-u-robotics",
+    "uwrt",
+    "uw-biotron"
+  ],
+  "warg": [
+    "watbots",
+    "uwrs",
+    "uw-orbital",
+    "waterloo-rocketry",
+    "uwrt",
+    "uw-vex-u-robotics",
+    "watonomous",
+    "uw-reality-labs"
+  ],
+  "waterloo-alternative-protein-project": [
+    "igem",
+    "industry-4-0",
+    "waterloo-blockchain",
+    "uwaft",
+    "uwaterloo-iise",
+    "waterloo-rocketry",
+    "aci-student-design-team",
+    "waterloo-hacker-fab"
+  ],
+  "waterloo-blockchain": [
+    "computer-science-club",
+    "wat-street",
+    "waterloo-alternative-protein-project",
+    "waterloo-hacker-fab",
+    "uwaterloo-iise",
+    "industry-4-0",
+    "watbots",
+    "wat-ai"
+  ],
+  "waterloo-hacker-fab": [
+    "uwnrg",
+    "computer-science-club",
+    "uwasic",
+    "uw-reality-labs",
+    "waterloo-blockchain",
+    "uw-biotron",
+    "igem",
+    "warg"
+  ],
+  "uwrs": [
+    "uwrt",
+    "uw-vex-u-robotics",
+    "uw-react",
+    "watbots",
+    "warg",
+    "aci-student-design-team",
+    "uw-concrete-toboggan",
+    "uwnrg"
+  ],
+  "waterloo-rocketry": [
+    "warg",
+    "uw-orbital",
+    "wsrt",
+    "igem",
+    "watarrow",
+    "waterloo-alternative-protein-project",
+    "industry-4-0",
+    "watbots"
+  ],
+  "wsrt": [
+    "uw-orbital",
+    "waterloo-rocketry",
+    "uwaft",
+    "warg",
+    "uw-reality-labs",
+    "uw-data-science-club",
+    "uwrs",
+    "uw-biotron"
+  ],
+  "watflow": [
+    "watreat",
+    "wat-ai",
+    "waturbine",
+    "watonomous",
+    "uwaft",
+    "igem",
+    "uwaterloo-iise",
+    "uw-biotron"
+  ],
+  "watolink": [
+    "watonomous",
+    "wat-ai",
+    "medtechresolve",
+    "watreat",
+    "waturbine",
+    "watbots",
+    "uw-biotron",
+    "wat-street"
+  ],
+  "watonomous": [
+    "watbots",
+    "wat-ai",
+    "watolink",
+    "warg",
+    "uwrt",
+    "wat-street",
+    "uwaft",
+    "waturbine"
+  ],
+  "watreat": [
+    "watflow",
+    "waturbine",
+    "watolink",
+    "watonomous",
+    "wat-street",
+    "igem",
+    "wat-ai",
+    "wsrt"
+  ],
+  "waturbine": [
+    "watarrow",
+    "watreat",
+    "watonomous",
+    "watolink",
+    "watbots",
+    "watflow",
+    "battery-workforce-challenge",
+    "warrior-home"
+  ]
+}

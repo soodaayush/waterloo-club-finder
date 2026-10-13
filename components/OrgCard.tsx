@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ViewTransition } from "react";
 import type { Org } from "@/data/schema";
 import { CATEGORY_LABEL, getLatestCycle } from "@/lib/orgUtils";
 import { formatDate, isStale } from "@/lib/date";
@@ -36,9 +37,16 @@ export function OrgCard({ org, isNew = false }: { org: Org; isNew?: boolean }) {
 
       <div className="flex flex-col items-start gap-2 pr-14">
         <div className="flex flex-wrap items-center gap-1.5">
-          <h3 className="text-pretty font-medium group-hover:text-accent">
-            {org.name}
-          </h3>
+          {/* Same name as the <h1> on the club page (app/clubs/[slug]/page.tsx)
+              so the browser morphs the title between card and detail page on
+              navigation - see node_modules/next/dist/docs/.../view-transitions.md.
+              No transition fires without browser support; the title just
+              renders normally either way. */}
+          <ViewTransition name={`club-title-${org.slug}`}>
+            <h3 className="text-pretty font-medium group-hover:text-accent">
+              {org.name}
+            </h3>
+          </ViewTransition>
           {isNew && (
             <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">
               New
