@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useId, useMemo, useState, useSyncExternalStore } from "react";
 import type { Category, Discipline, Org, Status } from "@/data/schema";
 import { OrgCard } from "@/components/OrgCard";
 import {
@@ -89,9 +89,7 @@ function urlFromFilters(filters: StoredFilters): string {
 // Filters live in a module-level store backed by sessionStorage, read via
 // useSyncExternalStore, so they survive navigating to a club page and back
 // (which unmounts and remounts this component) without an effect-driven
-// setState, and without touching sessionStorage during server rendering. A
-// fresh page load also checks the URL first, so a shared link with filters
-// in the query string wins over whatever was saved from a previous visit.
+// setState, and without touching sessionStorage during server rendering.
 let cachedFilters: StoredFilters | null = null;
 const listeners = new Set<() => void>();
 
@@ -111,7 +109,6 @@ function initialSnapshot(): StoredFilters {
     filters = { ...DEFAULT_FILTERS, ...fromUrl };
   }
 
-  cachedFilters = filters;
   return filters;
 }
 
@@ -218,6 +215,11 @@ export function OrgBrowser({
 }) {
   const searchId = useId();
   const [copied, setCopied] = useState(false);
+  // See syncFiltersFromUrl's doc comment: a shared/quiz link landing on an
+  // already-mounted-before browser tab needs this to actually take effect.
+  useEffect(() => {
+    syncFiltersFromUrl();
+  }, []);
   const newSlugSet = useMemo(() => new Set(newSlugs), [newSlugs]);
   const categories = CATEGORY_ORDER.filter((c) =>
     orgs.some((o) => o.category === c)
