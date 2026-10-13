@@ -65,10 +65,24 @@ function addedDates(): Map<string, string> {
   return cache;
 }
 
-/** True if this org's file was added to the dataset within the last 3 weeks. */
-export function isNewOrg(slug: string): boolean {
-  const added = addedDates().get(slug);
+function isNew(added: string | undefined): boolean {
   if (!added) return false;
   const days = daysSince(added);
   return days !== null && days >= 0 && days <= NEW_WITHIN_DAYS;
+}
+
+/** True if this org's file was added to the dataset within the last 3 weeks. */
+export function isNewOrg(slug: string): boolean {
+  return isNew(addedDates().get(slug));
+}
+
+/**
+ * Slugs of orgs added within the last 3 weeks. Prefer this over filtering a
+ * list with isNewOrg in a loop: addedDates() isn't cached outside production
+ * (so edits made mid dev-session are picked up), which means each call reruns
+ * a full `git log` - calling it once per org instead of once per render.
+ */
+export function newOrgSlugs(orgs: { slug: string }[]): string[] {
+  const added = addedDates();
+  return orgs.filter((o) => isNew(added.get(o.slug))).map((o) => o.slug);
 }

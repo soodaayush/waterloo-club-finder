@@ -1,12 +1,12 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
 import {
   getSavedServerSnapshot,
   getSavedSnapshot,
   subscribeSaved,
   toggleSaved,
 } from "@/lib/savedStore";
+import { toggleButtonClassName, useToggleButton } from "@/components/useToggleButton";
 
 /** Bookmark toggle. Works standalone, and sits on top of OrgCard's full-card
  *  link overlay when `coverLink` is set. */
@@ -19,12 +19,15 @@ export function SaveButton({
   name: string;
   coverLink?: boolean;
 }) {
-  const saved = useSyncExternalStore(
+  const { active: isSaved, handleClick } = useToggleButton(
     subscribeSaved,
     getSavedSnapshot,
-    getSavedServerSnapshot
+    getSavedServerSnapshot,
+    (saved) => saved.has(slug),
+    toggleSaved,
+    slug,
+    coverLink
   );
-  const isSaved = saved.has(slug);
 
   return (
     <button
@@ -32,16 +35,8 @@ export function SaveButton({
       aria-pressed={isSaved}
       aria-label={isSaved ? `Remove ${name} from saved clubs` : `Save ${name}`}
       title={isSaved ? "Remove from saved" : "Save for later"}
-      onClick={(e) => {
-        if (coverLink) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-        toggleSaved(slug);
-      }}
-      className={`relative z-10 rounded-full p-1.5 transition hover:bg-foreground/5 ${
-        isSaved ? "text-accent" : "text-foreground/40 hover:text-accent"
-      }`}
+      onClick={handleClick}
+      className={toggleButtonClassName(isSaved)}
     >
       <svg
         aria-hidden="true"

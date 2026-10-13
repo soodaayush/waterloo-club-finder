@@ -139,18 +139,18 @@ export default async function ComparePage({
               <Row
                 label="Opens"
                 cells={orgs.map(
-                  (org) => formatDate(getLatestCycle(org).opensAt) ?? "—"
+                  (org) => formatDate(getLatestCycle(org).opensAt) ?? "None"
                 )}
               />
               <Row
                 label="Closes"
                 cells={orgs.map(
-                  (org) => formatDate(getLatestCycle(org).closesAt) ?? "—"
+                  (org) => formatDate(getLatestCycle(org).closesAt) ?? "None"
                 )}
               />
               <Row
                 label="Tags"
-                cells={orgs.map((org) => org.tags.join(", ") || "—")}
+                cells={orgs.map((org) => org.tags.join(", ") || "None")}
               />
               <Row
                 label="Links"
@@ -165,7 +165,7 @@ export default async function ComparePage({
                   );
                   return (
                     <div key={org.slug} className="flex items-center gap-2">
-                      {links.length === 0 && "—"}
+                      {links.length === 0 && "None"}
                       {links.map((l) => (
                         <a
                           key={l.label}
@@ -197,7 +197,7 @@ export default async function ComparePage({
                       Apply now
                     </a>
                   ) : (
-                    "—"
+                    "None"
                   );
                 })}
               />

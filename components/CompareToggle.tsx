@@ -1,12 +1,12 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
 import {
   getCompareServerSnapshot,
   getCompareSnapshot,
   subscribeCompare,
   toggleCompare,
 } from "@/lib/compareStore";
+import { toggleButtonClassName, useToggleButton } from "@/components/useToggleButton";
 
 /** Adds/removes a club from the compare set. See components/CompareBar.tsx. */
 export function CompareToggle({
@@ -18,12 +18,15 @@ export function CompareToggle({
   name: string;
   coverLink?: boolean;
 }) {
-  const compare = useSyncExternalStore(
+  const { active, handleClick } = useToggleButton(
     subscribeCompare,
     getCompareSnapshot,
-    getCompareServerSnapshot
+    getCompareServerSnapshot,
+    (compare) => compare.includes(slug),
+    toggleCompare,
+    slug,
+    coverLink
   );
-  const active = compare.includes(slug);
 
   return (
     <button
@@ -33,16 +36,8 @@ export function CompareToggle({
         active ? `Remove ${name} from compare` : `Add ${name} to compare`
       }
       title={active ? "Remove from compare" : "Add to compare"}
-      onClick={(e) => {
-        if (coverLink) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-        toggleCompare(slug);
-      }}
-      className={`relative z-10 rounded-full p-1.5 transition hover:bg-foreground/5 ${
-        active ? "text-accent" : "text-foreground/40 hover:text-accent"
-      }`}
+      onClick={handleClick}
+      className={toggleButtonClassName(active)}
     >
       <svg
         aria-hidden="true"

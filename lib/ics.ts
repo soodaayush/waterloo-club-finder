@@ -23,17 +23,33 @@ function nextDay(iso: string): string {
   return d.toISOString().slice(0, 10);
 }
 
+const utf8Encoder = new TextEncoder();
+const utf8Decoder = new TextDecoder();
+
 // Folds a line to the 75-octet limit RFC 5545 requires, continuation lines
-// starting with a single space.
+// starting with a single space. Counts UTF-8 bytes, not JS string length
+// (UTF-16 code units) - a club name or note with accented characters or an
+// emoji near the boundary would otherwise produce a line that's within the
+// 75-*character* count but over the real 75-*octet* limit.
 function foldLine(line: string): string {
-  if (line.length <= 75) return line;
+  const bytes = utf8Encoder.encode(line);
+  if (bytes.length <= 75) return line;
+
   const chunks: string[] = [];
-  let rest = line;
-  while (rest.length > 75) {
-    chunks.push(rest.slice(0, 75));
-    rest = " " + rest.slice(75);
+  let offset = 0;
+  let first = true;
+  while (offset < bytes.length) {
+    // Continuation lines lose 1 byte of budget to their leading space.
+    let end = Math.min(offset + (first ? 75 : 74), bytes.length);
+    // Don't split a multi-byte UTF-8 sequence: back off while the byte at
+    // `end` is a continuation byte (10xxxxxx).
+    while (end > offset && end < bytes.length && (bytes[end] & 0xc0) === 0x80) {
+      end--;
+    }
+    chunks.push((first ? "" : " ") + utf8Decoder.decode(bytes.subarray(offset, end)));
+    offset = end;
+    first = false;
   }
-  chunks.push(rest);
   return chunks.join("\r\n");
 }
 
