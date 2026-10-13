@@ -1,5 +1,7 @@
 # Waterloo Club & Design Team Finder
 
+![Waterloo Club Finder homepage](public/readme-screenshot.png)
+
 One place to check application status across UWaterloo clubs and design
 teams, instead of Instagram, Discord, and a dozen scattered websites.
 
