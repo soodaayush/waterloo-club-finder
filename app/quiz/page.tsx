@@ -59,8 +59,8 @@ export default function QuizPage() {
       </header>
 
       {step === 0 && (
-        <fieldset className="flex flex-col gap-3">
-          <legend className="font-medium">What pulls you in most?</legend>
+        <fieldset className="flex flex-col gap-5">
+          <legend className="text-lg font-medium">What pulls you in most?</legend>
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {DISCIPLINE_OPTIONS.map((opt) => (
               <button
@@ -81,8 +81,8 @@ export default function QuizPage() {
       )}
 
       {step === 1 && (
-        <fieldset className="flex flex-col gap-3">
-          <legend className="font-medium">What are you looking for?</legend>
+        <fieldset className="flex flex-col gap-5">
+          <legend className="text-lg font-medium">What are you looking for?</legend>
           <div className="flex flex-col gap-2.5">
             {CATEGORY_OPTIONS.map((opt) => (
               <button

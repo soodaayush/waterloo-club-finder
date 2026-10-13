@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useId, useMemo, useState, useSyncExternalStore } from "react";
 import type { Category, Discipline, Org, Status } from "@/data/schema";
 import { OrgCard } from "@/components/OrgCard";
 import {
@@ -89,15 +89,13 @@ function urlFromFilters(filters: StoredFilters): string {
 // Filters live in a module-level store backed by sessionStorage, read via
 // useSyncExternalStore, so they survive navigating to a club page and back
 // (which unmounts and remounts this component) without an effect-driven
-// setState, and without touching sessionStorage during server rendering. A
-// fresh page load also checks the URL first, so a shared link with filters
-// in the query string wins over whatever was saved from a previous visit.
+// setState, and without touching sessionStorage during server rendering.
 let cachedFilters: StoredFilters | null = null;
 const listeners = new Set<() => void>();
 
-function getSnapshot(): StoredFilters {
-  if (cachedFilters) return cachedFilters;
-
+// The very first time the store is read in this tab, a shared link's
+// filters (the URL) should win over whatever's in sessionStorage.
+function initialSnapshot(): StoredFilters {
   let filters: StoredFilters;
   try {
     const raw = sessionStorage.getItem(FILTERS_STORAGE_KEY);
@@ -111,8 +109,12 @@ function getSnapshot(): StoredFilters {
     filters = { ...DEFAULT_FILTERS, ...fromUrl };
   }
 
-  cachedFilters = filters;
   return filters;
+}
+
+function getSnapshot(): StoredFilters {
+  if (!cachedFilters) cachedFilters = initialSnapshot();
+  return cachedFilters;
 }
 
 function getServerSnapshot(): StoredFilters {
@@ -122,6 +124,43 @@ function getServerSnapshot(): StoredFilters {
 function subscribe(callback: () => void): () => void {
   listeners.add(callback);
   return () => listeners.delete(callback);
+}
+
+function sameFilters(a: StoredFilters, b: StoredFilters): boolean {
+  return (
+    a.query === b.query &&
+    a.discipline === b.discipline &&
+    a.category === b.category &&
+    a.status === b.status &&
+    a.showClosed === b.showClosed &&
+    a.savedOnly === b.savedOnly
+  );
+}
+
+/**
+ * Re-reads the URL and, if it carries filters, makes them authoritative -
+ * replacing whatever's cached rather than merging onto it. `initialSnapshot`
+ * above only resolves the URL on the very first read of this module in the
+ * whole tab, but OrgBrowser can mount more than once in one browser session
+ * (e.g. leaving for /quiz and landing back on "/?d=...&c=..." via a client
+ * -side Link): without this, that second mount would just show whatever was
+ * cached from the first visit and silently ignore the new link's filters.
+ * Called from an effect on every OrgBrowser mount - see the component below.
+ */
+export function syncFiltersFromUrl() {
+  const fromUrl = filtersFromUrl(window.location.search);
+  if (Object.keys(fromUrl).length === 0) return;
+
+  const next = { ...DEFAULT_FILTERS, ...fromUrl };
+  if (cachedFilters && sameFilters(cachedFilters, next)) return;
+
+  cachedFilters = next;
+  try {
+    sessionStorage.setItem(FILTERS_STORAGE_KEY, JSON.stringify(cachedFilters));
+  } catch {
+    // sessionStorage unavailable (e.g. private browsing) - ignore
+  }
+  for (const listener of listeners) listener();
 }
 
 function setFilters(patch: Partial<StoredFilters>) {
@@ -176,6 +215,11 @@ export function OrgBrowser({
 }) {
   const searchId = useId();
   const [copied, setCopied] = useState(false);
+  // See syncFiltersFromUrl's doc comment: a shared/quiz link landing on an
+  // already-mounted-before browser tab needs this to actually take effect.
+  useEffect(() => {
+    syncFiltersFromUrl();
+  }, []);
   const newSlugSet = useMemo(() => new Set(newSlugs), [newSlugs]);
   const categories = CATEGORY_ORDER.filter((c) =>
     orgs.some((o) => o.category === c)
