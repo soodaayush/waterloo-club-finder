@@ -91,6 +91,24 @@ export function openWithDeadlineCount(orgs: Org[]): number {
     .length;
 }
 
+/**
+ * Orgs with an application window that's open right now and closes within
+ * `withinDays`, soonest-closing first. Powers the homepage "Closing soon" rail.
+ */
+export function closingSoon(orgs: Org[], withinDays = 14, limit = 6): Org[] {
+  return orgs
+    .filter((org) => {
+      const cycle = getLatestCycle(org);
+      if (effectiveStatus(cycle) !== "Open" || !cycle.closesAt) return false;
+      const days = daysUntil(cycle.closesAt);
+      return days !== null && days >= 0 && days <= withinDays;
+    })
+    .sort((a, b) =>
+      getLatestCycle(a).closesAt!.localeCompare(getLatestCycle(b).closesAt!)
+    )
+    .slice(0, limit);
+}
+
 /** Human phrasing for a status, used in page titles and share cards. */
 export const STATUS_PHRASE: Record<Status, string> = {
   Open: "Applications open",

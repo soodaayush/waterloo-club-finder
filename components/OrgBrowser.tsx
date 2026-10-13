@@ -1,8 +1,13 @@
 "use client";
 
-import { useId, useMemo, useSyncExternalStore } from "react";
+import { useId, useMemo, useState, useSyncExternalStore } from "react";
 import type { Category, Discipline, Org, Status } from "@/data/schema";
 import { OrgCard } from "@/components/OrgCard";
+import {
+  getSavedServerSnapshot,
+  getSavedSnapshot,
+  subscribeSaved,
+} from "@/lib/savedStore";
 import {
   CATEGORY_LABEL,
   DISCIPLINES,
@@ -23,6 +28,7 @@ type StoredFilters = {
   category: Category | null;
   status: Status | null;
   showClosed: boolean;
+  savedOnly: boolean;
 };
 
 const DEFAULT_FILTERS: StoredFilters = {
@@ -31,12 +37,61 @@ const DEFAULT_FILTERS: StoredFilters = {
   category: null,
   status: null,
   showClosed: false,
+  savedOnly: false,
 };
+
+// Short, URL-friendly keys for each filter, so a filtered view can be shared
+// as a link (e.g. /?d=Software&s=Open) instead of only living in
+// sessionStorage on one device.
+const URL_KEYS = {
+  query: "q",
+  discipline: "d",
+  category: "c",
+  status: "s",
+  showClosed: "closed",
+  savedOnly: "saved",
+} as const;
+
+function filtersFromUrl(search: string): Partial<StoredFilters> {
+  const params = new URLSearchParams(search);
+  const out: Partial<StoredFilters> = {};
+
+  const q = params.get(URL_KEYS.query);
+  if (q) out.query = q;
+
+  const d = params.get(URL_KEYS.discipline);
+  if (d && (DISCIPLINES as string[]).includes(d)) out.discipline = d as Discipline;
+
+  const c = params.get(URL_KEYS.category);
+  if (c && (CATEGORY_ORDER as string[]).includes(c)) out.category = c as Category;
+
+  const s = params.get(URL_KEYS.status);
+  if (s && (STATUSES as string[]).includes(s)) out.status = s as Status;
+
+  if (params.get(URL_KEYS.showClosed) === "1") out.showClosed = true;
+  if (params.get(URL_KEYS.savedOnly) === "1") out.savedOnly = true;
+
+  return out;
+}
+
+function urlFromFilters(filters: StoredFilters): string {
+  const params = new URLSearchParams();
+  if (filters.query) params.set(URL_KEYS.query, filters.query);
+  if (filters.discipline) params.set(URL_KEYS.discipline, filters.discipline);
+  if (filters.category) params.set(URL_KEYS.category, filters.category);
+  if (filters.status) params.set(URL_KEYS.status, filters.status);
+  if (filters.showClosed) params.set(URL_KEYS.showClosed, "1");
+  if (filters.savedOnly) params.set(URL_KEYS.savedOnly, "1");
+  const qs = params.toString();
+  return qs ? `?${qs}` : "";
+}
 
 // Filters live in a module-level store backed by sessionStorage, read via
 // useSyncExternalStore, so they survive navigating to a club page and back
 // (which unmounts and remounts this component) without an effect-driven
-// setState, and without touching sessionStorage during server rendering.
+// setState, and without touching sessionStorage during server rendering. A
+// fresh page load also checks the URL first, so a shared link with filters
+// in the query string wins over whatever was saved from a previous visit.
 let cachedFilters: StoredFilters | null = null;
 const listeners = new Set<() => void>();
 
@@ -50,6 +105,12 @@ function getSnapshot(): StoredFilters {
   } catch {
     filters = DEFAULT_FILTERS;
   }
+
+  const fromUrl = filtersFromUrl(window.location.search);
+  if (Object.keys(fromUrl).length > 0) {
+    filters = { ...DEFAULT_FILTERS, ...fromUrl };
+  }
+
   cachedFilters = filters;
   return filters;
 }
@@ -69,6 +130,12 @@ function setFilters(patch: Partial<StoredFilters>) {
     sessionStorage.setItem(FILTERS_STORAGE_KEY, JSON.stringify(cachedFilters));
   } catch {
     // sessionStorage unavailable (e.g. private browsing) - ignore
+  }
+  try {
+    const url = `${window.location.pathname}${urlFromFilters(cachedFilters)}`;
+    window.history.replaceState(null, "", url);
+  } catch {
+    // no-op outside the browser
   }
   for (const listener of listeners) listener();
 }
@@ -100,13 +167,26 @@ function Chip<T extends string>({
   );
 }
 
-export function OrgBrowser({ orgs }: { orgs: Org[] }) {
+export function OrgBrowser({
+  orgs,
+  newSlugs = [],
+}: {
+  orgs: Org[];
+  newSlugs?: string[];
+}) {
   const searchId = useId();
+  const [copied, setCopied] = useState(false);
+  const newSlugSet = useMemo(() => new Set(newSlugs), [newSlugs]);
   const categories = CATEGORY_ORDER.filter((c) =>
     orgs.some((o) => o.category === c)
   );
-  const { query, discipline, category, status, showClosed } =
+  const { query, discipline, category, status, showClosed, savedOnly } =
     useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const savedSlugs = useSyncExternalStore(
+    subscribeSaved,
+    getSavedSnapshot,
+    getSavedServerSnapshot
+  );
 
   const { filtered, hiddenClosed } = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -115,6 +195,7 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
     const results = orgs.filter((org) => {
       if (discipline && !org.disciplines.includes(discipline)) return false;
       if (category && org.category !== category) return false;
+      if (savedOnly && !savedSlugs.has(org.slug)) return false;
 
       const matchesText =
         !q ||
@@ -133,12 +214,30 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
     });
 
     return { filtered: sortByUrgency(results), hiddenClosed };
-  }, [orgs, query, discipline, category, status, showClosed]);
+  }, [orgs, query, discipline, category, status, showClosed, savedOnly, savedSlugs]);
 
-  const hasActiveFilters = Boolean(query || discipline || category || status);
+  const hasActiveFilters = Boolean(
+    query || discipline || category || status || savedOnly
+  );
 
   function clearFilters() {
-    setFilters({ query: "", discipline: null, category: null, status: null });
+    setFilters({
+      query: "",
+      discipline: null,
+      category: null,
+      status: null,
+      savedOnly: false,
+    });
+  }
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // clipboard unavailable - the URL is already in the address bar
+    }
   }
 
   return (
@@ -234,7 +333,18 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
         <span aria-live="polite">
           {filtered.length} {filtered.length === 1 ? "result" : "results"}
         </span>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
+          {(savedSlugs.size > 0 || savedOnly) && (
+            <label className="flex cursor-pointer items-center gap-1.5 select-none">
+              <input
+                type="checkbox"
+                checked={savedOnly}
+                onChange={(e) => setFilters({ savedOnly: e.target.checked })}
+                className="accent-accent"
+              />
+              ★ Saved only{savedSlugs.size > 0 && ` (${savedSlugs.size})`}
+            </label>
+          )}
           {!status && (hiddenClosed > 0 || showClosed) && (
             <label className="flex cursor-pointer items-center gap-1.5 select-none">
               <input
@@ -245,6 +355,15 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
               />
               Show closed{hiddenClosed > 0 && ` (${hiddenClosed})`}
             </label>
+          )}
+          {hasActiveFilters && (
+            <button
+              type="button"
+              onClick={copyLink}
+              className="font-medium text-foreground/70 underline underline-offset-2 hover:text-foreground"
+            >
+              {copied ? "Link copied!" : "Copy link"}
+            </button>
           )}
           {hasActiveFilters && (
             <button
@@ -289,7 +408,11 @@ export function OrgBrowser({ orgs }: { orgs: Org[] }) {
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((org) => (
-            <OrgCard key={org.slug} org={org} />
+            <OrgCard
+              key={org.slug}
+              org={org}
+              isNew={newSlugSet.has(org.slug)}
+            />
           ))}
         </div>
       )}

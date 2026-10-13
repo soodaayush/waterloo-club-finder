@@ -4,8 +4,14 @@ import { CATEGORY_LABEL, getLatestCycle } from "@/lib/orgUtils";
 import { formatDate, isStale } from "@/lib/date";
 import { StatusBadge } from "@/components/StatusBadge";
 import { LinkIcon, type LinkLabel } from "@/components/LinkIcon";
+import { SaveButton } from "@/components/SaveButton";
+import { CompareToggle } from "@/components/CompareToggle";
 
-export function OrgCard({ org }: { org: Org }) {
+// `isNew` is computed server-side (lib/newness.ts shells out to git, which
+// can't be bundled for the browser) and threaded down through OrgBrowser,
+// rather than computed in here - this component is rendered directly by the
+// "use client" OrgBrowser, so anything it imports ships to the client too.
+export function OrgCard({ org, isNew = false }: { org: Org; isNew?: boolean }) {
   const cycle = getLatestCycle(org);
   const stale = isStale(cycle.lastVerified);
   const links = [
@@ -23,10 +29,22 @@ export function OrgCard({ org }: { org: Org }) {
         <span className="sr-only">{org.name}</span>
       </Link>
 
-      <div className="flex flex-col items-start gap-2">
-        <h3 className="text-pretty font-medium group-hover:text-accent">
-          {org.name}
-        </h3>
+      <div className="absolute right-3 top-3 z-10 flex items-center gap-0.5">
+        <CompareToggle slug={org.slug} name={org.name} coverLink />
+        <SaveButton slug={org.slug} name={org.name} coverLink />
+      </div>
+
+      <div className="flex flex-col items-start gap-2 pr-14">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <h3 className="text-pretty font-medium group-hover:text-accent">
+            {org.name}
+          </h3>
+          {isNew && (
+            <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent uppercase">
+              New
+            </span>
+          )}
+        </div>
         <StatusBadge cycle={cycle} />
       </div>
       <p className="line-clamp-2 text-sm text-foreground/60">

@@ -5,6 +5,8 @@ import { getAllOrgs, getOrgBySlug } from "@/lib/getOrgs";
 import { getEditOrgUrl } from "@/lib/github";
 import { StatusBadge } from "@/components/StatusBadge";
 import { LinkIcon, type LinkLabel } from "@/components/LinkIcon";
+import { SaveButton } from "@/components/SaveButton";
+import { CompareToggle } from "@/components/CompareToggle";
 import { formatDate, isStale } from "@/lib/date";
 import {
   CATEGORY_LABEL,
@@ -97,6 +99,10 @@ export default async function ClubPage({
             {org.name}
           </h1>
           <StatusBadge cycle={cycles[0]} />
+          <div className="ml-auto flex items-center gap-1 rounded-full border border-border">
+            <CompareToggle slug={org.slug} name={org.name} />
+            <SaveButton slug={org.slug} name={org.name} />
+          </div>
         </div>
         <p className="text-foreground/60">{org.description}</p>
         <div className="flex flex-wrap gap-2 pt-1">
@@ -122,7 +128,7 @@ export default async function ClubPage({
         </div>
       </header>
 
-      {links.length > 0 && (
+      {(links.length > 0 || cycles[0].opensAt || cycles[0].closesAt) && (
         <div className="flex flex-wrap gap-2.5">
           {links.map((l) => (
             <a
@@ -137,6 +143,28 @@ export default async function ClubPage({
               <span className="sr-only"> (opens in new tab)</span>
             </a>
           ))}
+          {(cycles[0].opensAt || cycles[0].closesAt) && (
+            <a
+              href={`/clubs/${org.slug}/calendar.ics`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-2 text-sm font-medium transition hover:border-accent hover:text-accent"
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="size-4"
+              >
+                <path
+                  d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              Add to calendar
+            </a>
+          )}
         </div>
       )}
 
