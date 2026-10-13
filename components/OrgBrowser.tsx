@@ -3,6 +3,8 @@
 import { useEffect, useId, useMemo, useState, useSyncExternalStore } from "react";
 import type { Category, Discipline, Org, Status } from "@/data/schema";
 import { OrgCard } from "@/components/OrgCard";
+import { shareOrCopy, webShareStore } from "@/lib/share";
+import { SITE_NAME } from "@/lib/site";
 import {
   getSavedServerSnapshot,
   getSavedSnapshot,
@@ -215,6 +217,11 @@ export function OrgBrowser({
 }) {
   const searchId = useId();
   const [copied, setCopied] = useState(false);
+  const canShare = useSyncExternalStore(
+    webShareStore.subscribe,
+    webShareStore.getSnapshot,
+    webShareStore.getServerSnapshot
+  );
   // See syncFiltersFromUrl's doc comment: a shared/quiz link landing on an
   // already-mounted-before browser tab needs this to actually take effect.
   useEffect(() => {
@@ -274,13 +281,14 @@ export function OrgBrowser({
     });
   }
 
-  async function copyLink() {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
+  async function shareFilters() {
+    const result = await shareOrCopy({
+      title: SITE_NAME,
+      url: window.location.href,
+    });
+    if (result === "copied") {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
-    } catch {
-      // clipboard unavailable - the URL is already in the address bar
     }
   }
 
@@ -403,10 +411,10 @@ export function OrgBrowser({
           {hasActiveFilters && (
             <button
               type="button"
-              onClick={copyLink}
+              onClick={shareFilters}
               className="font-medium text-foreground/70 underline underline-offset-2 hover:text-foreground"
             >
-              {copied ? "Link copied!" : "Copy link"}
+              {copied ? "Link copied!" : canShare ? "Share" : "Copy link"}
             </button>
           )}
           {hasActiveFilters && (

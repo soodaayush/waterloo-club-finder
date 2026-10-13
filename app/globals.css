@@ -73,4 +73,18 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* View Transition pseudo-elements (::view-transition-*) aren't matched by
+     *::before/*::after above - they're a separate pseudo-element tree the
+     browser generates outside the DOM, so they need their own override.
+     Matches Next's own recommended block (node_modules/next/dist/docs/
+     .../view-transitions.md): zeroing duration/delay, not `animation: none`,
+     still lets content swap (instantly) rather than potentially getting
+     stuck mid-transition. */
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
 }

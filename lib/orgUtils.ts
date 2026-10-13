@@ -1,5 +1,6 @@
 import type { Cycle, Discipline, Org, Status } from "@/data/schema";
 import { daysUntil } from "@/lib/date";
+import semanticNeighbors from "@/data/related.json";
 
 /** Disciplines in display order (hardware → software → the rest). */
 export const DISCIPLINES: Discipline[] = [
@@ -41,11 +42,18 @@ const BROAD_TAGS = new Set([
  * Other orgs a student looking at `org` would plausibly also consider.
  * Requires at least one *specific* shared tag ("robotics", "computer-vision");
  * shared disciplines only break ties among those.
+ *
+ * When that rule doesn't fill `limit`, remaining slots come from
+ * data/related.json - a description/tag embedding similarity computed once
+ * at build time by scripts/compute-related.ts, never at request time. This
+ * only fills gaps the explicit tag rule above misses; it never outranks or
+ * replaces an actual shared-tag match, since that rule is the one a
+ * maintainer can actually read and reason about.
  */
 export function relatedOrgs(org: Org, all: Org[], limit = 4): Org[] {
   const specific = new Set(org.tags.filter((t) => !BROAD_TAGS.has(t)));
 
-  return all
+  const tagMatches = all
     .filter((o) => o.slug !== org.slug)
     .map((o) => ({
       org: o,
@@ -59,8 +67,24 @@ export function relatedOrgs(org: Org, all: Org[], limit = 4): Org[] {
         b.discScore - a.discScore ||
         a.org.name.localeCompare(b.org.name)
     )
-    .slice(0, limit)
     .map((x) => x.org);
+
+  if (tagMatches.length >= limit) return tagMatches.slice(0, limit);
+
+  const bySlug = new Map(all.map((o) => [o.slug, o]));
+  const seen = new Set([org.slug, ...tagMatches.map((o) => o.slug)]);
+  const neighbors: string[] =
+    (semanticNeighbors as Record<string, string[]>)[org.slug] ?? [];
+
+  const fillers: Org[] = [];
+  for (const slug of neighbors) {
+    if (tagMatches.length + fillers.length >= limit) break;
+    if (seen.has(slug)) continue;
+    const candidate = bySlug.get(slug);
+    if (candidate) fillers.push(candidate);
+  }
+
+  return [...tagMatches, ...fillers];
 }
 
 /**
