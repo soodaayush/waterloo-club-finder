@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { getAllOrgs } from "@/lib/getOrgs";
+import { CompareBar } from "@/components/CompareBar";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -47,6 +49,10 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const orgNames = Object.fromEntries(
+    getAllOrgs().map((org) => [org.slug, org.name])
+  );
+
   return (
     <html
       lang="en"
@@ -110,6 +116,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
         </footer>
         <Analytics />
+        <CompareBar orgNames={orgNames} />
       </body>
     </html>
   );
