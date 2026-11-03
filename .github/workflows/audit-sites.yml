@@ -1,0 +1,93 @@
+name: Site audit
+
+# Runs audit-sites weekly and keeps a single issue in sync with the results:
+# opens it when a site looks wrong (hijacked / parked / spam / gone
+# off-topic), updates it as things change, closes it once everything looks
+# on-topic again. Slower and more thorough than link-check (renders every
+# site with real Chrome instead of just checking HTTP status), so it runs
+# weekly instead of daily. Never edits data - same as link-check.yml.
+
+on:
+  schedule:
+    - cron: "0 14 * * 1" # 14:00 UTC Monday (~09:00/10:00 America/Toronto)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+      - run: npm run audit-sites
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+
+      - if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const LABEL = 'site-audit';
+            const MARKER = '<!-- site-audit-bot -->';
+            const TITLE = 'Site audit: a team site looks wrong';
+
+            let report;
+            try {
+              report = fs.readFileSync('site-audit.md', 'utf8').trim();
+            } catch {
+              report = 'The site audit errored before producing a report. See the workflow run.';
+            }
+            const clean = !/## Needs a look/.test(report);
+
+            const { owner, repo } = context.repo;
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner, repo, state: 'open', labels: LABEL,
+            });
+            const existing = open.find((i) => i.body && i.body.includes(MARKER));
+
+            if (clean) {
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number: existing.number,
+                  body: 'Every independently-hosted site looks on-topic as of the latest run. Closing.',
+                });
+                await github.rest.issues.update({
+                  owner, repo, issue_number: existing.number, state: 'closed',
+                });
+              }
+              return;
+            }
+
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const body = [
+              MARKER,
+              '',
+              `Updated automatically by the site-audit workflow ([latest run](${runUrl})).`,
+              'Each flag is a guess, not a verdict - open the URL yourself before touching `data/orgs/`.',
+              '',
+              report,
+            ].join('\n');
+
+            if (existing) {
+              await github.rest.issues.update({ owner, repo, issue_number: existing.number, body });
+            } else {
+              try {
+                await github.rest.issues.getLabel({ owner, repo, name: LABEL });
+              } catch {
+                await github.rest.issues.createLabel({
+                  owner, repo, name: LABEL, color: 'b60205',
+                  description: 'Automated hijacked / parked / off-topic site report',
+                });
+              }
+              await github.rest.issues.create({ owner, repo, title: TITLE, labels: [LABEL], body });
+            }

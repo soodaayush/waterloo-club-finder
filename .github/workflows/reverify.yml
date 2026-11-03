@@ -1,0 +1,55 @@
+name: Re-verify stale orgs
+
+# Weekly: re-reads stale orgs' real websites and, only for changes backed by
+# a quoted snippet actually found on the page, opens a PR proposing the
+# update (scripts/reverify.ts). It never pushes to main and never merges
+# anything - CODEOWNERS already requires a human review on everything under
+# /data/, same as any PR from a person. Needs an ANTHROPIC_API_KEY repo
+# secret; if it's not set, this workflow just does nothing (see the guard
+# below) rather than failing noisily every week.
+
+on:
+  schedule:
+    - cron: "0 15 * * 3" # 15:00 UTC Wednesday (~10:00/11:00 America/Toronto)
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max orgs to check this run"
+        default: "15"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  reverify:
+    runs-on: ubuntu-latest
+    # Skip entirely (not a failure) until the repo owner adds the secret -
+    # see the "Secret" step below for how to add it.
+    if: ${{ vars.REVERIFY_ENABLED == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+      - name: Re-verify
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npm run reverify -- --limit "${{ inputs.limit || 15 }}"
+
+      - name: Open a PR if anything changed
+        if: always()
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "Re-verify stale orgs against their real sites"
+          title: "Re-verify: proposed data updates from live sites"
+          body-path: reverify-pr-body.md
+          branch: auto/reverify
+          delete-branch: true
+          add-paths: data/orgs/*.json
+          labels: reverify

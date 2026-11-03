@@ -11,7 +11,8 @@
     "check-links": "tsx scripts/check-links.ts",
     "render": "tsx scripts/render.ts",
     "audit-sites": "tsx scripts/audit-sites.ts",
-    "compute-related": "tsx scripts/compute-related.ts"
+    "compute-related": "tsx scripts/compute-related.ts",
+    "reverify": "tsx scripts/reverify.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
