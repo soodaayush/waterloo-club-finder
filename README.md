@@ -25,6 +25,22 @@ build time and statically generates every page.
   `website` and `applyUrl`, and keeps one GitHub issue in sync with anything
   that is broken or that hasn't been re-verified in 90+ days. It never edits
   data. Run it yourself with `npm run check-links`.
+- **A weekly site audit.** [`.github/workflows/audit-sites.yml`](.github/workflows/audit-sites.yml)
+  runs [`scripts/audit-sites.ts`](scripts/audit-sites.ts) against every
+  `website` and `applyUrl` with real headless Chrome, and keeps a GitHub
+  issue in sync with anything that looks hijacked, parked, or off-topic, like
+  a lapsed team domain that's turned into a casino page, the kind of thing a
+  plain HTTP check would miss. It never edits data. Run it yourself with
+  `npm run audit-sites`.
+- **A weekly re-verify, drafted as a PR.** [`.github/workflows/reverify.yml`](.github/workflows/reverify.yml)
+  runs [`scripts/reverify.ts`](scripts/reverify.ts), which reads stale orgs'
+  real sites with the Claude API and proposes status/date/notes updates as a
+  pull request. It never writes to `data/orgs/` directly or merges anything;
+  a human still reviews and merges every proposed change, same as any other
+  PR. Off by default, since it needs an API key: to turn it on, add an
+  `ANTHROPIC_API_KEY` secret (repo Settings > Secrets and variables >
+  Actions > Secrets tab) and set the repository variable `REVERIFY_ENABLED`
+  to `true` (same page, Variables tab).
 - **Deploying is just merging.** Once hosted on Vercel with auto-deploy on
   `main`, an approved PR going live is "click merge."
 
@@ -123,11 +139,14 @@ scripts/
   validate-data.ts       Standalone schema check, run locally and in CI
   check-links.ts         Fast: HTTP status + staleness of every website/applyUrl
   audit-sites.ts         Slow: renders every site with Chrome, flags hijacked/parked domains
+  reverify.ts            Claude reads stale orgs' sites, drafts a PR with proposed updates
   render.ts              Render one JS-heavy page with headless Chrome (text/links/screenshot)
-  lib/chrome.ts          Shared headless-Chrome helpers for the two scripts above
+  lib/chrome.ts          Shared headless-Chrome helpers for the scripts above
 .github/
   workflows/ci.yml            Validates data + builds on every PR
   workflows/link-check.yml    Runs check-links daily, files/updates a GitHub issue
+  workflows/audit-sites.yml   Runs audit-sites weekly, files/updates a GitHub issue
+  workflows/reverify.yml      Runs reverify weekly, drafts a PR (off until opted in, see above)
   workflows/refresh.yml       Nightly redeploy so date-derived statuses stay current
   workflows/pr-data-review.yml  Lists changed URLs on data PRs for reviewer eyeballing
   CODEOWNERS
