@@ -14,6 +14,7 @@ import { formatDate, isStale } from "@/lib/date";
 import {
   CATEGORY_LABEL,
   STATUS_PHRASE,
+  canApplyNow,
   effectiveStatus,
   getLatestCycle,
   relatedOrgs,
@@ -195,7 +196,7 @@ export default async function ClubPage({
                 )}
                 {cycle.notes && <p className="mt-1">{cycle.notes}</p>}
               </div>
-              {cycle.applyUrl && (
+              {cycle.applyUrl && canApplyNow(cycle) && (
                 <a
                   href={cycle.applyUrl}
                   target="_blank"
@@ -264,7 +265,9 @@ export default async function ClubPage({
         </a>
       </section>
 
-      {cycles[0].applyUrl && <MobileApplyBar applyUrl={cycles[0].applyUrl} />}
+      {cycles[0].applyUrl && canApplyNow(cycles[0]) && (
+        <MobileApplyBar applyUrl={cycles[0].applyUrl} />
+      )}
     </main>
   );
 }
