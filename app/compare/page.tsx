@@ -6,7 +6,7 @@ import { getOrgBySlug } from "@/lib/getOrgs";
 import { formatDate } from "@/lib/date";
 import { StatusBadge } from "@/components/StatusBadge";
 import { LinkIcon, type LinkLabel } from "@/components/LinkIcon";
-import { CATEGORY_LABEL, getLatestCycle } from "@/lib/orgUtils";
+import { CATEGORY_LABEL, canApplyNow, getLatestCycle } from "@/lib/orgUtils";
 
 // A comparison depends entirely on which slugs are in the query string, so
 // it's never worth indexing - the canonical page for each club is /clubs/[slug].
@@ -185,8 +185,9 @@ export default async function ComparePage({
               <Row
                 label="Apply"
                 cells={orgs.map((org) => {
-                  const url = getLatestCycle(org).applyUrl;
-                  return url ? (
+                  const cycle = getLatestCycle(org);
+                  const url = cycle.applyUrl;
+                  return url && canApplyNow(cycle) ? (
                     <a
                       key={org.slug}
                       href={url}

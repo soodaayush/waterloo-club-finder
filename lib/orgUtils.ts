@@ -109,6 +109,21 @@ export function effectiveStatus(cycle: Cycle): Status {
   return cycle.status;
 }
 
+/**
+ * True if this cycle's `applyUrl` should actually be surfaced as a live
+ * "Apply now" action - not just that one is on file, but that the cycle is
+ * presently something you can apply to (Open or Rolling). A Closed or
+ * Upcoming cycle commonly still has `applyUrl` set (kept as a record of
+ * where the form was, or because it exists but isn't accepting responses
+ * yet) - showing "Apply now" for those is actively misleading, not just
+ * unhelpful.
+ */
+export function canApplyNow(cycle: Cycle): boolean {
+  if (!cycle.applyUrl) return false;
+  const status = effectiveStatus(cycle);
+  return status === "Open" || status === "Rolling";
+}
+
 /** Orgs whose current cycle has a real, time-boxed application window open right now. */
 export function openWithDeadlineCount(orgs: Org[]): number {
   return orgs.filter((org) => effectiveStatus(getLatestCycle(org)) === "Open")
